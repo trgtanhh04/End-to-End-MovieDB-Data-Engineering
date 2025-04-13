@@ -1,0 +1,303 @@
+2025-04-08 15:07:20,847 - __main__ - INFO - Starting the crawling process
+2025-04-08 15:07:21,711 - __main__ - INFO - Page 1: Found 20 movies
+2025-04-08 15:09:11,675 - __main__ - INFO - Page 1 completed!
+2025-04-08 15:09:12,456 - __main__ - INFO - Page 2: Found 20 movies
+2025-04-08 15:11:03,814 - __main__ - INFO - Page 2 completed!
+2025-04-08 15:11:04,706 - __main__ - INFO - Page 3: Found 20 movies
+2025-04-08 15:12:55,527 - __main__ - INFO - Page 3 completed!
+2025-04-08 15:12:56,339 - __main__ - INFO - Page 4: Found 20 movies
+2025-04-08 15:14:52,371 - __main__ - INFO - Page 4 completed!
+2025-04-08 15:14:53,154 - __main__ - INFO - Page 5: Found 20 movies
+2025-04-08 15:16:45,157 - __main__ - INFO - Page 5 completed!
+2025-04-08 15:16:45,989 - __main__ - INFO - Page 6: Found 20 movies
+2025-04-08 15:18:40,991 - __main__ - INFO - Page 6 completed!
+2025-04-08 15:18:41,856 - __main__ - INFO - Page 7: Found 20 movies
+2025-04-08 15:20:40,798 - __main__ - INFO - Page 7 completed!
+2025-04-08 15:20:41,622 - __main__ - INFO - Page 8: Found 20 movies
+2025-04-08 15:22:29,313 - __main__ - INFO - Page 8 completed!
+2025-04-08 15:22:30,138 - __main__ - INFO - Page 9: Found 20 movies
+2025-04-08 15:24:22,290 - __main__ - INFO - Page 9 completed!
+2025-04-08 15:24:23,086 - __main__ - INFO - Page 10: Found 20 movies
+2025-04-08 15:26:19,259 - __main__ - INFO - Page 10 completed!
+2025-04-08 15:26:20,031 - __main__ - INFO - Page 11: Found 20 movies
+2025-04-08 15:28:17,338 - __main__ - INFO - Page 11 completed!
+2025-04-08 15:28:18,173 - __main__ - INFO - Page 12: Found 20 movies
+2025-04-08 15:30:14,924 - __main__ - INFO - Page 12 completed!
+2025-04-08 15:30:15,800 - __main__ - INFO - Page 13: Found 20 movies
+2025-04-08 15:32:05,376 - __main__ - INFO - Page 13 completed!
+2025-04-08 15:32:06,556 - __main__ - INFO - Page 14: Found 20 movies
+2025-04-08 15:34:07,226 - __main__ - INFO - Page 14 completed!
+2025-04-08 15:34:08,199 - __main__ - INFO - Page 15: Found 20 movies
+2025-04-08 15:36:06,128 - __main__ - INFO - Page 15 completed!
+2025-04-08 15:36:07,352 - __main__ - INFO - Page 16: Found 20 movies
+2025-04-08 15:38:06,985 - __main__ - INFO - Page 16 completed!
+2025-04-08 15:38:07,923 - __main__ - INFO - Page 17: Found 20 movies
+2025-04-08 15:40:08,376 - __main__ - INFO - Page 17 completed!
+2025-04-08 15:40:09,163 - __main__ - INFO - Page 18: Found 20 movies
+2025-04-08 15:42:15,520 - __main__ - INFO - Page 18 completed!
+2025-04-08 15:42:16,323 - __main__ - INFO - Page 19: Found 20 movies
+2025-04-08 15:44:08,924 - __main__ - INFO - Page 19 completed!
+2025-04-08 15:44:09,682 - __main__ - INFO - Page 20: Found 20 movies
+2025-04-08 15:46:04,118 - __main__ - INFO - Page 20 completed!
+2025-04-08 15:46:04,955 - __main__ - INFO - Page 21: Found 20 movies
+2025-04-08 15:48:03,183 - __main__ - INFO - Page 21 completed!
+2025-04-08 15:48:04,008 - __main__ - INFO - Page 22: Found 20 movies
+2025-04-08 15:49:49,996 - __main__ - INFO - Page 22 completed!
+2025-04-08 15:49:50,781 - __main__ - INFO - Page 23: Found 20 movies
+2025-04-08 15:51:45,730 - __main__ - INFO - Page 23 completed!
+2025-04-08 15:51:46,653 - __main__ - INFO - Page 24: Found 20 movies
+2025-04-08 15:53:39,928 - __main__ - INFO - Page 24 completed!
+2025-04-08 15:53:40,692 - __main__ - INFO - Page 25: Found 20 movies
+2025-04-08 15:55:31,017 - __main__ - INFO - Page 25 completed!
+2025-04-08 15:55:31,834 - __main__ - INFO - Page 26: Found 20 movies
+2025-04-08 15:57:25,508 - __main__ - INFO - Page 26 completed!
+2025-04-08 15:57:26,305 - __main__ - INFO - Page 27: Found 20 movies
+2025-04-08 15:59:26,788 - __main__ - INFO - Page 27 completed!
+2025-04-08 15:59:27,617 - __main__ - INFO - Page 28: Found 20 movies
+2025-04-08 16:01:23,023 - __main__ - INFO - Page 28 completed!
+2025-04-08 16:01:23,850 - __main__ - INFO - Page 29: Found 20 movies
+2025-04-08 16:03:17,758 - __main__ - INFO - Page 29 completed!
+2025-04-08 16:03:18,562 - __main__ - INFO - Page 30: Found 20 movies
+2025-04-08 16:05:16,840 - __main__ - INFO - Page 30 completed!
+2025-04-08 16:05:17,726 - __main__ - INFO - Page 31: Found 20 movies
+2025-04-08 16:07:19,962 - __main__ - INFO - Page 31 completed!
+2025-04-08 16:07:20,766 - __main__ - INFO - Page 32: Found 20 movies
+2025-04-08 16:09:07,030 - __main__ - INFO - Page 32 completed!
+2025-04-08 16:09:07,797 - __main__ - INFO - Page 33: Found 20 movies
+2025-04-08 16:10:56,595 - __main__ - INFO - Page 33 completed!
+2025-04-08 16:10:57,423 - __main__ - INFO - Page 34: Found 20 movies
+2025-04-08 16:12:52,734 - __main__ - INFO - Page 34 completed!
+2025-04-08 16:12:53,497 - __main__ - INFO - Page 35: Found 20 movies
+2025-04-08 16:14:53,252 - __main__ - INFO - Page 35 completed!
+2025-04-08 16:14:54,064 - __main__ - INFO - Page 36: Found 20 movies
+2025-04-08 16:16:44,103 - __main__ - INFO - Page 36 completed!
+2025-04-08 16:16:45,014 - __main__ - INFO - Page 37: Found 20 movies
+2025-04-08 16:18:31,057 - __main__ - INFO - Page 37 completed!
+2025-04-08 16:18:31,881 - __main__ - INFO - Page 38: Found 20 movies
+2025-04-08 16:20:23,726 - __main__ - INFO - Page 38 completed!
+2025-04-08 16:20:24,484 - __main__ - INFO - Page 39: Found 20 movies
+2025-04-08 16:22:16,306 - __main__ - INFO - Page 39 completed!
+2025-04-08 16:22:17,266 - __main__ - INFO - Page 40: Found 20 movies
+2025-04-08 16:24:13,130 - __main__ - INFO - Page 40 completed!
+2025-04-08 16:24:13,950 - __main__ - INFO - Page 41: Found 20 movies
+2025-04-08 16:26:16,069 - __main__ - INFO - Page 41 completed!
+2025-04-08 16:26:17,052 - __main__ - INFO - Page 42: Found 20 movies
+2025-04-08 16:28:05,390 - __main__ - INFO - Page 42 completed!
+2025-04-08 16:28:06,250 - __main__ - INFO - Page 43: Found 20 movies
+2025-04-08 16:29:49,358 - __main__ - INFO - Page 43 completed!
+2025-04-08 16:29:50,156 - __main__ - INFO - Page 44: Found 20 movies
+2025-04-08 16:31:43,405 - __main__ - INFO - Page 44 completed!
+2025-04-08 16:31:44,247 - __main__ - INFO - Page 45: Found 20 movies
+2025-04-08 16:33:32,742 - __main__ - INFO - Page 45 completed!
+2025-04-08 16:33:33,586 - __main__ - INFO - Page 46: Found 20 movies
+2025-04-08 16:35:24,099 - __main__ - INFO - Page 46 completed!
+2025-04-08 16:35:24,910 - __main__ - INFO - Page 47: Found 20 movies
+2025-04-08 16:37:25,213 - __main__ - INFO - Page 47 completed!
+2025-04-08 16:37:26,034 - __main__ - INFO - Page 48: Found 20 movies
+2025-04-08 16:39:21,161 - __main__ - INFO - Page 48 completed!
+2025-04-08 16:39:21,976 - __main__ - INFO - Page 49: Found 20 movies
+2025-04-08 16:41:18,853 - __main__ - INFO - Page 49 completed!
+2025-04-08 16:41:19,619 - __main__ - INFO - Page 50: Found 20 movies
+2025-04-08 16:43:11,484 - __main__ - INFO - Page 50 completed!
+2025-04-08 16:43:12,315 - __main__ - INFO - Page 51: Found 20 movies
+2025-04-08 16:45:03,080 - __main__ - INFO - Page 51 completed!
+2025-04-08 16:45:03,871 - __main__ - INFO - Page 52: Found 20 movies
+2025-04-08 16:47:11,631 - __main__ - INFO - Page 52 completed!
+2025-04-08 16:47:12,387 - __main__ - INFO - Page 53: Found 20 movies
+2025-04-08 16:49:07,286 - __main__ - INFO - Page 53 completed!
+2025-04-08 16:49:08,110 - __main__ - INFO - Page 54: Found 20 movies
+2025-04-08 16:51:05,329 - __main__ - INFO - Page 54 completed!
+2025-04-08 16:51:06,286 - __main__ - INFO - Page 55: Found 20 movies
+2025-04-08 16:53:02,264 - __main__ - INFO - Page 55 completed!
+2025-04-08 16:53:03,223 - __main__ - INFO - Page 56: Found 20 movies
+2025-04-08 16:54:57,416 - __main__ - INFO - Page 56 completed!
+2025-04-08 16:54:58,223 - __main__ - INFO - Page 57: Found 20 movies
+2025-04-08 16:58:02,719 - __main__ - INFO - Page 57 completed!
+2025-04-08 16:58:03,487 - __main__ - INFO - Page 58: Found 20 movies
+2025-04-08 16:59:49,144 - __main__ - INFO - Page 58 completed!
+2025-04-08 16:59:50,049 - __main__ - INFO - Page 59: Found 20 movies
+2025-04-08 17:01:40,137 - __main__ - INFO - Page 59 completed!
+2025-04-08 17:01:41,011 - __main__ - INFO - Page 60: Found 20 movies
+2025-04-08 17:03:32,197 - __main__ - INFO - Page 60 completed!
+2025-04-08 17:03:32,993 - __main__ - INFO - Page 61: Found 20 movies
+2025-04-08 17:05:24,188 - __main__ - INFO - Page 61 completed!
+2025-04-08 17:05:24,990 - __main__ - INFO - Page 62: Found 20 movies
+2025-04-08 17:07:11,219 - __main__ - INFO - Page 62 completed!
+2025-04-08 17:07:12,167 - __main__ - INFO - Page 63: Found 20 movies
+2025-04-08 17:09:10,212 - __main__ - INFO - Page 63 completed!
+2025-04-08 17:09:11,046 - __main__ - INFO - Page 64: Found 20 movies
+2025-04-08 17:11:01,808 - __main__ - INFO - Page 64 completed!
+2025-04-08 17:11:02,627 - __main__ - INFO - Page 65: Found 20 movies
+2025-04-08 17:12:53,544 - __main__ - INFO - Page 65 completed!
+2025-04-08 17:12:54,376 - __main__ - INFO - Page 66: Found 20 movies
+2025-04-08 17:14:47,194 - __main__ - INFO - Page 66 completed!
+2025-04-08 17:14:48,008 - __main__ - INFO - Page 67: Found 20 movies
+2025-04-08 17:16:37,306 - __main__ - INFO - Page 67 completed!
+2025-04-08 17:16:38,247 - __main__ - INFO - Page 68: Found 20 movies
+2025-04-08 17:18:25,611 - __main__ - INFO - Page 68 completed!
+2025-04-08 17:18:26,402 - __main__ - INFO - Page 69: Found 20 movies
+2025-04-08 17:20:24,248 - __main__ - INFO - Page 69 completed!
+2025-04-08 17:20:25,221 - __main__ - INFO - Page 70: Found 20 movies
+2025-04-08 17:22:17,254 - __main__ - INFO - Page 70 completed!
+2025-04-08 17:22:18,099 - __main__ - INFO - Page 71: Found 20 movies
+2025-04-08 17:24:07,934 - __main__ - INFO - Page 71 completed!
+2025-04-08 17:24:08,757 - __main__ - INFO - Page 72: Found 20 movies
+2025-04-08 17:26:01,630 - __main__ - INFO - Page 72 completed!
+2025-04-08 17:26:02,454 - __main__ - INFO - Page 73: Found 20 movies
+2025-04-08 17:27:55,490 - __main__ - INFO - Page 73 completed!
+2025-04-08 17:27:56,360 - __main__ - INFO - Page 74: Found 20 movies
+2025-04-08 17:29:44,780 - __main__ - INFO - Page 74 completed!
+2025-04-08 17:29:45,620 - __main__ - INFO - Page 75: Found 20 movies
+2025-04-08 17:31:43,169 - __main__ - INFO - Page 75 completed!
+2025-04-08 17:31:44,076 - __main__ - INFO - Page 76: Found 20 movies
+2025-04-08 17:33:43,120 - __main__ - INFO - Page 76 completed!
+2025-04-08 17:33:43,900 - __main__ - INFO - Page 77: Found 20 movies
+2025-04-08 17:35:38,483 - __main__ - INFO - Page 77 completed!
+2025-04-08 17:35:39,297 - __main__ - INFO - Page 78: Found 20 movies
+2025-04-08 17:37:28,234 - __main__ - INFO - Page 78 completed!
+2025-04-08 17:37:29,125 - __main__ - INFO - Page 79: Found 20 movies
+2025-04-08 17:39:17,437 - __main__ - INFO - Page 79 completed!
+2025-04-08 17:39:18,415 - __main__ - INFO - Page 80: Found 20 movies
+2025-04-08 17:41:09,420 - __main__ - INFO - Page 80 completed!
+2025-04-08 17:41:10,260 - __main__ - INFO - Page 81: Found 20 movies
+2025-04-08 17:43:06,897 - __main__ - INFO - Page 81 completed!
+2025-04-08 17:43:07,762 - __main__ - INFO - Page 82: Found 20 movies
+2025-04-08 17:44:58,520 - __main__ - INFO - Page 82 completed!
+2025-04-08 17:44:59,430 - __main__ - INFO - Page 83: Found 20 movies
+2025-04-08 17:46:55,230 - __main__ - INFO - Page 83 completed!
+2025-04-08 17:46:56,047 - __main__ - INFO - Page 84: Found 20 movies
+2025-04-08 17:48:43,630 - __main__ - INFO - Page 84 completed!
+2025-04-08 17:48:44,446 - __main__ - INFO - Page 85: Found 20 movies
+2025-04-08 17:50:37,615 - __main__ - INFO - Page 85 completed!
+2025-04-08 17:50:38,431 - __main__ - INFO - Page 86: Found 20 movies
+2025-04-08 17:52:39,168 - __main__ - INFO - Page 86 completed!
+2025-04-08 17:52:39,981 - __main__ - INFO - Page 87: Found 20 movies
+2025-04-08 17:54:37,740 - __main__ - INFO - Page 87 completed!
+2025-04-08 17:54:38,617 - __main__ - INFO - Page 88: Found 20 movies
+2025-04-08 17:56:35,055 - __main__ - INFO - Page 88 completed!
+2025-04-08 17:56:35,880 - __main__ - INFO - Page 89: Found 20 movies
+2025-04-08 17:58:30,999 - __main__ - INFO - Page 89 completed!
+2025-04-08 17:58:31,891 - __main__ - INFO - Page 90: Found 20 movies
+2025-04-08 18:00:29,308 - __main__ - INFO - Page 90 completed!
+2025-04-08 18:00:30,093 - __main__ - INFO - Page 91: Found 20 movies
+2025-04-08 18:02:27,654 - __main__ - INFO - Page 91 completed!
+2025-04-08 18:02:28,467 - __main__ - INFO - Page 92: Found 20 movies
+2025-04-08 18:04:17,300 - __main__ - INFO - Page 92 completed!
+2025-04-08 18:04:18,156 - __main__ - INFO - Page 93: Found 20 movies
+2025-04-08 18:06:06,128 - __main__ - INFO - Page 93 completed!
+2025-04-08 18:06:07,516 - __main__ - INFO - Page 94: Found 20 movies
+2025-04-08 18:08:01,384 - __main__ - INFO - Page 94 completed!
+2025-04-08 18:08:02,226 - __main__ - INFO - Page 95: Found 20 movies
+2025-04-08 18:09:52,570 - __main__ - INFO - Page 95 completed!
+2025-04-08 18:09:53,321 - __main__ - INFO - Page 96: Found 20 movies
+2025-04-08 18:11:46,704 - __main__ - INFO - Page 96 completed!
+2025-04-08 18:11:47,690 - __main__ - INFO - Page 97: Found 20 movies
+2025-04-08 18:13:29,950 - __main__ - INFO - Page 97 completed!
+2025-04-08 18:13:30,831 - __main__ - INFO - Page 98: Found 20 movies
+2025-04-08 18:15:26,543 - __main__ - INFO - Page 98 completed!
+2025-04-08 18:15:27,280 - __main__ - INFO - Page 99: Found 20 movies
+2025-04-08 18:17:22,334 - __main__ - INFO - Page 99 completed!
+2025-04-08 18:17:23,080 - __main__ - INFO - Page 100: Found 20 movies
+2025-04-08 18:19:19,830 - __main__ - INFO - Page 100 completed!
+2025-04-08 18:19:20,737 - __main__ - INFO - Page 101: Found 20 movies
+2025-04-08 18:21:11,170 - __main__ - INFO - Page 101 completed!
+2025-04-08 18:21:11,934 - __main__ - INFO - Page 102: Found 20 movies
+2025-04-08 18:22:59,696 - __main__ - INFO - Page 102 completed!
+2025-04-08 18:23:00,487 - __main__ - INFO - Page 103: Found 20 movies
+2025-04-08 18:24:57,536 - __main__ - INFO - Page 103 completed!
+2025-04-08 18:24:58,278 - __main__ - INFO - Page 104: Found 20 movies
+2025-04-08 18:26:57,679 - __main__ - INFO - Page 104 completed!
+2025-04-08 18:26:58,424 - __main__ - INFO - Page 105: Found 20 movies
+2025-04-08 18:28:48,363 - __main__ - INFO - Page 105 completed!
+2025-04-08 18:28:49,096 - __main__ - INFO - Page 106: Found 20 movies
+2025-04-08 18:30:38,914 - __main__ - INFO - Page 106 completed!
+2025-04-08 18:30:39,749 - __main__ - INFO - Page 107: Found 20 movies
+2025-04-08 18:32:26,336 - __main__ - INFO - Page 107 completed!
+2025-04-08 18:32:27,118 - __main__ - INFO - Page 108: Found 20 movies
+2025-04-08 18:34:13,581 - __main__ - INFO - Page 108 completed!
+2025-04-08 18:34:14,360 - __main__ - INFO - Page 109: Found 20 movies
+2025-04-08 18:36:11,129 - __main__ - INFO - Page 109 completed!
+2025-04-08 18:36:11,927 - __main__ - INFO - Page 110: Found 20 movies
+2025-04-08 18:38:02,826 - __main__ - INFO - Page 110 completed!
+2025-04-08 18:38:03,577 - __main__ - INFO - Page 111: Found 20 movies
+2025-04-08 18:40:01,827 - __main__ - INFO - Page 111 completed!
+2025-04-08 18:40:02,589 - __main__ - INFO - Page 112: Found 20 movies
+2025-04-08 18:41:49,244 - __main__ - INFO - Page 112 completed!
+2025-04-08 18:41:50,032 - __main__ - INFO - Page 113: Found 20 movies
+2025-04-08 18:43:38,890 - __main__ - INFO - Page 113 completed!
+2025-04-08 18:43:39,709 - __main__ - INFO - Page 114: Found 20 movies
+2025-04-08 18:45:36,296 - __main__ - INFO - Page 114 completed!
+2025-04-08 18:45:37,080 - __main__ - INFO - Page 115: Found 20 movies
+2025-04-08 18:47:29,027 - __main__ - INFO - Page 115 completed!
+2025-04-08 18:47:29,784 - __main__ - INFO - Page 116: Found 20 movies
+2025-04-08 18:49:21,607 - __main__ - INFO - Page 116 completed!
+2025-04-08 18:49:22,345 - __main__ - INFO - Page 117: Found 20 movies
+2025-04-08 18:51:11,675 - __main__ - INFO - Page 117 completed!
+2025-04-08 18:51:12,484 - __main__ - INFO - Page 118: Found 20 movies
+2025-04-08 18:53:10,282 - __main__ - INFO - Page 118 completed!
+2025-04-08 18:53:11,033 - __main__ - INFO - Page 119: Found 20 movies
+2025-04-08 18:55:03,111 - __main__ - INFO - Page 119 completed!
+2025-04-08 18:55:04,250 - __main__ - INFO - Page 120: Found 20 movies
+2025-04-08 18:56:56,634 - __main__ - INFO - Page 120 completed!
+2025-04-08 18:56:57,428 - __main__ - INFO - Page 121: Found 20 movies
+2025-04-08 18:58:46,490 - __main__ - INFO - Page 121 completed!
+2025-04-08 18:58:47,243 - __main__ - INFO - Page 122: Found 20 movies
+2025-04-08 19:00:36,779 - __main__ - INFO - Page 122 completed!
+2025-04-08 19:00:37,654 - __main__ - INFO - Page 123: Found 20 movies
+2025-04-08 19:02:25,566 - __main__ - INFO - Page 123 completed!
+2025-04-08 19:02:26,327 - __main__ - INFO - Page 124: Found 20 movies
+2025-04-08 19:04:13,401 - __main__ - INFO - Page 124 completed!
+2025-04-08 19:04:14,200 - __main__ - INFO - Page 125: Found 20 movies
+2025-04-08 19:06:05,100 - __main__ - INFO - Page 125 completed!
+2025-04-08 19:06:05,857 - __main__ - INFO - Page 126: Found 20 movies
+2025-04-08 19:07:59,303 - __main__ - INFO - Page 126 completed!
+2025-04-08 19:08:00,103 - __main__ - INFO - Page 127: Found 20 movies
+2025-04-08 19:09:48,500 - __main__ - INFO - Page 127 completed!
+2025-04-08 19:09:49,246 - __main__ - INFO - Page 128: Found 20 movies
+2025-04-08 19:11:40,590 - __main__ - INFO - Page 128 completed!
+2025-04-08 19:11:41,320 - __main__ - INFO - Page 129: Found 20 movies
+2025-04-08 19:13:34,596 - __main__ - INFO - Page 129 completed!
+2025-04-08 19:13:35,400 - __main__ - INFO - Page 130: Found 20 movies
+2025-04-08 19:15:27,661 - __main__ - INFO - Page 130 completed!
+2025-04-08 19:15:28,449 - __main__ - INFO - Page 131: Found 20 movies
+2025-04-08 19:17:27,706 - __main__ - INFO - Page 131 completed!
+2025-04-08 19:17:28,563 - __main__ - INFO - Page 132: Found 20 movies
+2025-04-08 19:19:19,005 - __main__ - INFO - Page 132 completed!
+2025-04-08 19:19:19,780 - __main__ - INFO - Page 133: Found 20 movies
+2025-04-08 19:21:06,802 - __main__ - INFO - Page 133 completed!
+2025-04-08 19:21:07,586 - __main__ - INFO - Page 134: Found 20 movies
+2025-04-08 19:23:01,463 - __main__ - INFO - Page 134 completed!
+2025-04-08 19:23:02,265 - __main__ - INFO - Page 135: Found 20 movies
+2025-04-08 19:24:52,382 - __main__ - INFO - Page 135 completed!
+2025-04-08 19:24:53,220 - __main__ - INFO - Page 136: Found 20 movies
+2025-04-08 19:26:34,418 - __main__ - INFO - Page 136 completed!
+2025-04-08 19:26:35,320 - __main__ - INFO - Page 137: Found 20 movies
+2025-04-08 19:28:33,181 - __main__ - INFO - Page 137 completed!
+2025-04-08 19:28:34,114 - __main__ - INFO - Page 138: Found 20 movies
+2025-04-08 19:30:29,419 - __main__ - INFO - Page 138 completed!
+2025-04-08 19:30:30,300 - __main__ - INFO - Page 139: Found 20 movies
+2025-04-08 19:32:27,026 - __main__ - INFO - Page 139 completed!
+2025-04-08 19:32:27,887 - __main__ - INFO - Page 140: Found 20 movies
+2025-04-08 19:34:23,940 - __main__ - INFO - Page 140 completed!
+2025-04-08 19:34:24,793 - __main__ - INFO - Page 141: Found 20 movies
+2025-04-08 19:36:17,602 - __main__ - INFO - Page 141 completed!
+2025-04-08 19:36:18,441 - __main__ - INFO - Page 142: Found 20 movies
+2025-04-08 19:38:12,700 - __main__ - INFO - Page 142 completed!
+2025-04-08 19:38:15,504 - __main__ - INFO - Page 143: Found 20 movies
+2025-04-08 19:40:06,590 - __main__ - INFO - Page 143 completed!
+2025-04-08 19:40:07,700 - __main__ - INFO - Page 144: Found 20 movies
+2025-04-08 19:41:56,660 - __main__ - INFO - Page 144 completed!
+2025-04-08 19:41:57,662 - __main__ - INFO - Page 145: Found 20 movies
+2025-04-08 19:43:46,850 - __main__ - INFO - Page 145 completed!
+2025-04-08 19:43:47,663 - __main__ - INFO - Page 146: Found 20 movies
+2025-04-08 19:45:47,127 - __main__ - INFO - Page 146 completed!
+2025-04-08 19:45:48,192 - __main__ - INFO - Page 147: Found 20 movies
+2025-04-08 19:47:42,109 - __main__ - INFO - Page 147 completed!
+2025-04-08 19:47:42,959 - __main__ - INFO - Page 148: Found 20 movies
+2025-04-08 19:49:37,416 - __main__ - INFO - Page 148 completed!
+2025-04-08 19:49:38,352 - __main__ - INFO - Page 149: Found 20 movies
+2025-04-08 19:51:37,077 - __main__ - INFO - Page 149 completed!
+2025-04-08 19:51:37,922 - __main__ - INFO - Page 150: Found 20 movies
+2025-04-08 19:53:29,734 - __main__ - INFO - Page 150 completed!
+2025-04-08 19:53:29,808 - __main__ - INFO - Data saved to file /home/tienanh/End-to-End Movie Recommendation/data_test/movies.csv
+2025-04-08 19:53:29,809 - __main__ - INFO - Data collection complete. Elapsed time: 17168.96 seconds

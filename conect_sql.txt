@@ -1,0 +1,35 @@
+1. Kiểm tra và khởi động PostgreSQL
+sudo systemctl status postgresql   # Kiểm tra trạng thái
+sudo systemctl restart postgresql  # Khởi động lại nếu cần
+sudo systemctl enable postgresql   # Cho phép tự động chạy khi khởi động hệ thống
+
+2. Cấu hình PostgreSQL (Nếu cần kết nối từ xa)
+sudo nano /etc/postgresql/14/main/postgresql.conf
+→ Thay đổi listen_addresses = '*'
+
+Cấp quyền truy cập trong pg_hba.conf
+sudo nano /etc/postgresql/14/main/pg_hba.conf
+
+→ Thêm dòng:
+host    all             all             0.0.0.0/0               md5
+
+Khởi động lại để áp dụng thay đổi:
+sudo systemctl restart postgresql
+
+3. Tạo Database & User
+sudo -u postgres psql
+
+Tạo database:
+CREATE DATABASE mobile_data;
+
+Kiểm tra user (nếu cần tạo user mới):
+CREATE USER myuser WITH PASSWORD 'mypassword';
+GRANT ALL PRIVILEGES ON DATABASE mobile_data TO myuser;
+
+Thoát khỏi PostgreSQL:
+\q
+
+
+4.  Kết nối và kiểm tra dữ liệu
+Từ localhost (WSL):
+psql -U postgres -d mobile_data

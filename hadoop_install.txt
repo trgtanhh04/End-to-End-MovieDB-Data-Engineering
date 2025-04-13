@@ -1,0 +1,290 @@
+Họ tên: Trương Tiến Anh
+MSSV: 22120017
+Tienanh123
+cd /mnt/e/Downloads/hadoop-3.4.1/etc/hadoop
+================================================ BÀI LÀM ================================================
+Chạy trong môi tường Ubuntu
+1. Cài đặt java ( nên cài java 8 vì java 11 mới chỉ hỗ trợ runtime)
+sudo apt install openjdk-8-jdk -y
+
+2. Kiểm tra cài đặt java và đường dẫn
+java -version; javac -version
+which javac 
+
+readlink -f /usr/bin/javac
+
+nhớ đường link này: /usr/lib/jvm/java-8-openjdk-amd64/
+
+3. Tải Hadoop
+https://hadoop.apache.org/releases.html
+
+đã tải xong
+
+4. Giải nén file đặt tại thư mục home
+
+5. Cài đặt openSSH
+sudo apt install openssh-server openssh-client -y
+
+6. Tạo và cài đặt SSH Certificates
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+-- lưu lại thông tin
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+-- cấp quyền cho user
+chmod 0600 ~/.ssh/authorized_keys
+-- kiểm tra ssh
+ssh localhost
+
+nhớ thông tin này: 
+localhost (127.0.0.1)
+127.0.0.1 
+=> đây là địa chỉ localhost, kiểm tra localhost của máy nếu khác thì sửa lại
+
+7. Cấu hình lại các file Files trong hadoop-3.4.1/etc/hadoop
+
+7.1. cấu hình: bashrc
+
+gedit ~/.bashrc	(có thể thay gedit = nano nếu máy không hỗ trợ gedit)
+---copy vào cuối file để setup các đường dẫn env
+
+# Cấu hình Java
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+# Cấu hình Hadoop
+export HADOOP_HOME=/mnt/e/Downloads/hadoop-3.4.1
+export HADOOP_INSTALL=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+
+---lưu thay đổi bashrc
+source ~/.bashrc
+
+7.2 Cấu hình file hadoop-env.sh
+--thêm địa chỉ JAVA_HOME cho hadoop
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+7.3 Cấu hình file core-site.xml
+-- tạo folder trung chuyển tmp rồi cấp quyền tất cả user truy cập vào nó
+mkdir -p /home/tienanh/hadoop-3.3.1/tmp
+
+--copy các dòng lệnh vào trong thẻ configuration
+<property>
+     <name>hadoop.tmp.dir</name>
+     <value>/home/tienanh/hadoop-4.3.1/tmp</value>
+</property>	
+<property>
+     <name>fs.default.name</name>
+     <value>hdfs://localhost:9000</value>
+</property>
+
+
+7.4 Cấu hình file mapred-site.xml
+--copy các dòng lệnh vào trong thẻ configuration
+<property>
+  <name>mapreduce.framework.name</name> 
+  <value>yarn</value> 
+</property>
+
+7.5 Cấu hình file  hdfs-site.xml
+-- tạo 2 folder namenode và datanode
+mkdir -p /home/tienanh/hadoop-3.4.1/data/namenode
+mkdir -p /home/tienanh/hadoop-3.4.1/data/datanode
+
+--copy các dòng lệnh vào trong thẻ configuration
+
+<property>
+    <name>dfs.replication</name>
+    <value>1</value>
+</property>
+<property>
+    <name>dfs.namenode.name.dir</name>
+    <value>/home/tienanh/hadoop-3.4.1/data/namenode</value>
+</property>
+<property>
+    <name>dfs.datanode.data.dir</name>
+    <value>/home/tienanh/hadoop-3.4.1/data/datanode</value>
+</property>
+
+7.6  Cấu hình file yarn-site.xml
+
+<property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+</property>
+<property>
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+<property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>127.0.0.1</value>
+</property>
+<property>
+    <name>yarn.acl.enable</name>
+    <value>0</value>
+</property>
+<property>
+    <name>yarn.nodemanager.env-whitelist</name>   
+    <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PERPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+</property>
+<property>
+    <name>yarn.resourcemanager.webapp.address</name>
+    <value>0.0.0.0:8088</value>
+</property>
+
+8. Format file hệ thống Hadoop mới (khúc này ta cd ~ để ra ngoài home)
+hdfs namenode -format
+
+9. Chạy namenode,datanode, secondary namenode
+
+start-dfs.sh
+
+10. chạy yarn : resourcemanager, nodemanagers
+start-yarn.sh
+
+11.Kiểm tra liên kết
+jps
+
+hdfs --daemon start datanode (chạy lệnh này nếu k có datanode)
+
+nếu không chạy đủ 6 chương trình thì có thể bị lỗi trong lúc cài đặt như tạo file, cấp quyền cho file, hoặc sai đường dẫn đén các env trong file bashrc
+
+
+12. Kiểm tra HDFS Web UI
+localhost:9870
+-- yarn resource manager
+localhost:8088
+
+12. tạo thư mục trong hdfs:
+hadoop fs -mkdir -p /user/tienanh/input
+
+xem các thư mục đã tạo trong hdfs
+
+hiện tại thư mục input đang rỗng.
+
+<Các bước thao tác với file/folder trên HDFS>
+
+13. Copy file từ máy chính sang HDFS: 
+
+hdfs dfs -put /home/tienanh/test.txt /user/tienanh/input (dùng linux)
+hdfs dfs -put /mnt/e/Downloads/test.txt /user/tienanh/input (dùng windown)
+
+hdfs dfs -put <đường dẫn của máy local> <đường dẫn của hdfs>
+
+hiện đã tạo sẵn 1 file test.txt ở đây, giờ chuyển file nào vào thư mục input
+
+--lệnh xem danh sách các file của thư mục
+hdfs dfs -ls /user/tienanh/input
+
+-- tạo 1 file rỗng (lệnh tạo 1 file rỗng nha)
+hdfs dfs –touchz <path/to/newfile>
+VD: hdfs dfs -touchz /user/tienanh/input/test1.txt
+
+-- kiểm tra kích thước file
+hdfs dfs –du –s <path/to/file>
+VD: hdfs dfs -du -s /user/tienanh/input/test1.txt
+
+--Hiển thị nội dung file
+hdfs dfs -cat <file_path>
+VD: hdfs dfs -cat /user/tienanh/input/test1.txt
+
+
+-- Trả về số lượng thư mục, số lượng files và kích thước tổng ở đường dẫn <path>
+hdfs dfs -count <path>
+VD: hdfs dfs -count /user/tienanh
+vậy là có 2 thư mục, 2 file, size =49
+
+-- Copy file trong HDFS
+hdfs dfs -cp <source> <destination>
+VD: 
+hadoop fs -mkdir -p /user/tienanh/input1 -> tạo dir input1 làm destination
+hdfs dfs -cp /user/tienanh/input/test1.txt /user/tienanh/input1/
+
+
+- tạo thêm 1 thư mục
+-- Di chuyển file HDFS
+hdfs dfs -mv <source> <destination>
+VD: hdfs dfs -mv /user/tienanh/input/test1.txt /user/tienanh/archive/
+
+
+-- Chuyển file từ hdfs về local
+hdfs dfs -get file_name /user/login_user_name
+VD: 
+hdfs dfs -get /user/tienanh/input/test1.txt /home/tienanh/ -> (dành cho linux)
+hdfs dfs -get /user/tienanh/input/test1.txt "E:\Hadoop output\test1.txt" -> (dành cho windown)
+
+
+-- Xóa file trên HDFS 
+hdfs dfs -rm file_name /user/login_user_name
+VD: hdfs dfs -rm /user/tienanh/input/test1.txt
+
+-- dừng hadoop
+stop-all.sh
+
+--------------------------------------------Gỡ Bug-----------------------------------------
+DataNode không được liên kết với jps
+-- dừng hadoop
+stop-all.sh
+
+--đổi lại quyền truy cập folder
+
+chmod 777 /home/tienanh/hadoop-3.4.1/data/datanode
+chmod 777 /home/tienanh/hadoop-3.4.1/data
+
+--format lại
+hdfs namenode -format
+
+--Khởi động lại Hadoop
+start-dfs.sh
+start-yarn.sh
+
+--Kiểm tra đã có datanode
+jps
+
+--Kiểm tra xem namenode với datanode đã đồng bộ chưa
+hdfs dfsadmin -report
+--------------------------------------------------------------------------------------------
+
+
+--------------------Các bước khởi động Hadoop sau khi đã làm all các bước trên--------------
+Bước 1: Mở WSL (Ubuntu)
+
+Bước 2: Khởi động HDFS và YARN
+start-dfs.sh
+start-yarn.sh
+
+Bước 3: Kiểm tra Hadoop đã chạy chưa
+jps
+
+output expect:
+NameNode
+DataNode
+ResourceManager
+NodeManager
+SecondaryNameNode
+Jps
+
+Bước 4: Mở giao diện Web UI (Tuỳ chọn)
+HDFS Web UI: http://localhost:9870
+YARN Web UI: http://localhost:8088
+
+Bước 5: Kiểm tra thư mục trên HDFS
+hdfs dfs -ls /
+
+Bước 6: Dừng Hadoop khi không sử dụng
+stop-all.sh
+Hoặc nếu dùng phiên bản mới hơn:
+stop-dfs.sh
+stop-yarn.sh
+
+
+Note: nếu chạy bước 3 mà không thất datanode thì xem các bước Gỡ bug bên trên -> mục tiêu đủ 6 ouput và
+datanode, namenode đồng bộ mới chạy được
+
+--------------------------------------------------------------------------------------------
+link youtube: https://youtu.be/MZ_FUEnbrR4?si=qFntJrtCFS2hwQ--
+================================================== END ==================================================

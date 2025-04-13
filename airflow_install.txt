@@ -1,0 +1,21 @@
+# Tạo dags trên airflow UI và bỏ file lên đó
+mkdir -p /home/tienanh/airflow/dags
+cp /mnt/e/airflow/dags/my_dag.py /home/tienanh/airflow/dags/
+
+# Chạy lại web
+airflow db init
+airflow users create \
+    --username tienanh \
+    --firstname Tien \
+    --lastname Anh \
+    --role Admin \
+    --email tienanh@example.com \
+    --password Tienanh123
+
+airflow scheduler -D
+airflow webserver -p 8080 -D
+
+
+ln -s "/home/tienanh/End-to-End Movie Recommendation/dags/data_pipeline.py" ~/airflow/dags/data_pipeline.py
+
+# Kiểm tra lỗi :airflow dags list-import-errors
