@@ -149,4 +149,7 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 **Mô tả**: Hình ảnh này mô tả việc gửi email tự động khi các tác vụ trong **Airflow** hoàn tất, giúp người quản trị nhận thông báo kịp thời về trạng thái của quy trình xử lý dữ liệu.
 
+---
+
+## Hướng Dẫn Cài Đặt Dự Án
 
