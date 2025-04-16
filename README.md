@@ -9,9 +9,6 @@
 - Trang web **The Movie Database (TMDb)** là một cơ sở dữ liệu phim trực tuyến nổi tiếng, cung cấp thông tin chi tiết về các bộ phim, chương trình truyền hình, dàn diễn viên, đạo diễn, thể loại, đánh giá và nhiều thông tin hữu ích khác. Đây là một nguồn tài nguyên phong phú, được sử dụng rộng rãi trong việc phát triển các ứng dụng liên quan đến điện ảnh và giải trí.
 
 ---
-## Tổng quan
-
----
 
 ## Cấu trúc thư mục
 ---
@@ -109,4 +106,43 @@ Mô tả các tác vụ:
   - Xử lý lỗi và retry linh hoạt
   - Theo dõi trực quan luồng dữ liệu
 
+## Hình Ảnh và Mô Tả
+
+Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành phần quan trọng trong dự án của bạn:
+
+### 1. **Airflow UI**  
+![Airflow UI](https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Airflow_UI.png)
+**Mô tả**: Đây là giao diện người dùng của **Apache Airflow**, công cụ điều phối chính trong quy trình ETL của dự án. Giao diện này cho phép bạn theo dõi các pipeline, kiểm tra lịch trình chạy và theo dõi các tác vụ.
+
+### 2. **Data Engineering Architecture**  
+![Data Engineering Architecture](./Data_engineering_architecture.png)
+**Mô tả**: Kiến trúc tổng thể của hệ thống xử lý dữ liệu, từ việc thu thập dữ liệu từ các nguồn, lưu trữ trong HDFS, xử lý với Apache Spark cho đến việc tải vào kho dữ liệu PostgreSQL và đẩy lên **Neon Cloud**.
+
+### 3. **Data in HDFS**  
+![Data in HDFS](https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Data_In_HDFS.png)
+**Mô tả**: Hình ảnh này minh họa cách dữ liệu được lưu trữ trong **HDFS** (Hadoop Distributed File System), nơi dữ liệu thô được lưu trữ và chuẩn bị cho các bước xử lý tiếp theo.
+
+### 4. **ERD For Database**  
+![ERD For Database](https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/ERD_For_Database.png)
+**Mô tả**: **ERD (Entity-Relationship Diagram)** này mô tả cấu trúc cơ sở dữ liệu PostgreSQL, giúp hiểu rõ cách dữ liệu được lưu trữ và các mối quan hệ giữa các bảng trong hệ thống.
+
+### 5. **Model ML**  
+![Model ML](https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Model_ML.png)
+**Mô tả**: Đây là mô hình học máy được xây dựng trên dữ liệu thu thập từ các bộ phim, giúp dự đoán các thông tin như mức độ phổ biến của các bộ phim dựa trên các đặc trưng như thể loại, năm phát hành và điểm IMDb.
+
+### 6. **Neon Cloud**  
+![Neon Cloud](https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Neon_Cloud.png)
+**Mô tả**: **Neon Cloud** là nơi dữ liệu cuối cùng được tải lên. Đây là nền tảng cơ sở dữ liệu SQL hỗ trợ các dự án dữ liệu lớn, mang lại khả năng mở rộng và hiệu suất cao cho việc lưu trữ dữ liệu của hệ thống.
+
+### 8. **Send Gmail**  
+![Send Gmail](https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Send_Gmail.png)
+**Mô tả**: Hình ảnh này mô tả việc gửi email tự động khi các tác vụ trong **Airflow** hoàn tất, giúp người quản trị nhận thông báo kịp thời về trạng thái của quy trình xử lý dữ liệu.
+
+### 9. **UI Streamlit - 1**  
+![UI Streamlit 1](./UI_Streamlit_1.png)
+**Mô tả**: Giao diện người dùng của ứng dụng **Streamlit**, nơi người dùng có thể tìm kiếm và nhận các phân tích dữ liệu về các bộ phim từ hệ thống. Đây là phần giao diện tương tác cho người dùng cuối.
+
+### 10. **UI Streamlit - 2**  
+![UI Streamlit 2](./UI_Streamlit_2.png)
+**Mô tả**: Mô tả tiếp theo của giao diện ứng dụng **Streamlit**, với các chức năng và biểu đồ phân tích dữ liệu chi tiết hơn về các bộ phim, giúp người dùng đưa ra quyết định tốt hơn khi mua vé xem phim hoặc tham gia các hoạt động giải trí.
 
