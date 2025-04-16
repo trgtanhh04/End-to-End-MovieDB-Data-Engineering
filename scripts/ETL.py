@@ -27,7 +27,7 @@ PG_PORT = os.getenv("PG_PORT")  # your port
 PG_DATABASE = os.getenv("PG_DATABASE")  # your database name
 
 # HDFS_PATH = f"hdfs://localhost:9000/user/hadoop/datalake/{datetime.now().strftime('%Y-%m-%d')}/*/*.json"
-HDFS_PATH = f"hdfs://localhost:9000/user/hadoop/datalake/2025-04-10/*/*.json"
+HDFS_PATH = f"hdfs://localhost:9000/user/hadoop/datalake/{datetime.now().strftime('%Y-%m-%d')}/*/*.json"
 CURRENT_DATE_UTC = '2025-04-04 10:58:06'
 CURRENT_USER = 'postgres'
 PROCESSED_MARKER_DIR = '/home/tienanh/End-to-End Movie Recommendation/marker_files'
