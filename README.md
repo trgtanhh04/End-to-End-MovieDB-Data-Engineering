@@ -123,28 +123,28 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 ### 2. **Airflow UI**  
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Airflow_UI.png" width="80%" alt="Mô hình MVC">
+  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Airflow_UI.png" width="100%" alt="Mô hình MVC">
 </p>
 
 **Mô tả**: Đây là giao diện người dùng của **Apache Airflow**, công cụ điều phối chính trong quy trình ETL của dự án. Giao diện này cho phép bạn theo dõi các pipeline, kiểm tra lịch trình chạy và theo dõi các tác vụ.
 
 ### 3. **Data in HDFS**  
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Data_In_HDFS.png" width="80%" alt="Mô hình MVC">
+  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Data_In_HDFS.png" width="100%" alt="Mô hình MVC">
 </p>
 
 **Mô tả**: Hình ảnh này minh họa cách dữ liệu được lưu trữ trong **HDFS** (Hadoop Distributed File System), nơi dữ liệu thô được lưu trữ và chuẩn bị cho các bước xử lý tiếp theo.
 
 ### 4. **ERD For Database**  
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/ERD_For_Database.png" width="80%" alt="Mô hình MVC">
+  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/ERD_For_Database.png" width="100%" alt="Mô hình MVC">
 </p>
 
 **Mô tả**: **ERD (Entity-Relationship Diagram)** này mô tả cấu trúc cơ sở dữ liệu PostgreSQL, giúp hiểu rõ cách dữ liệu được lưu trữ và các mối quan hệ giữa các bảng trong hệ thống.
 
 ### 5. **Send Gmail**  
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Send_Gmail.png" width="80%" alt="Mô hình MVC">
+  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Send_Gmail.png" width="100%" alt="Mô hình MVC">
 </p>
 
 **Mô tả**: Hình ảnh này mô tả việc gửi email tự động khi các tác vụ trong **Airflow** hoàn tất, giúp người quản trị nhận thông báo kịp thời về trạng thái của quy trình xử lý dữ liệu.
