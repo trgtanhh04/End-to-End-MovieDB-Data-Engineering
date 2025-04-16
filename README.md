@@ -30,72 +30,88 @@ Mô tả các tác vụ:
 
 - **send_email_task**: Gửi email thông báo kết quả chạy pipeline (thành công/thất bại), giúp theo dõi và giám sát.
 
-## 🔄 Quy Trình Xử Lý Dữ Liệu (ETL Pipeline)
+## 🔄 Quy Trình Xử Lý Dữ Liệu
 
-Dự án thực hiện toàn bộ quy trình xử lý dữ liệu phim theo mô hình ETL (Extract - Transform - Load), bao gồm các bước:
+### 📥 1. Thu Thập Dữ Liệu
 
----
-
-### 🧪 1. Extract – Trích Xuất Dữ Liệu
-
-- **Mục tiêu:** Lấy dữ liệu phim từ một website công khai.
-- **Công cụ:** `requests`, `BeautifulSoup` hoặc `Selenium` (nếu web động).
-- **Nội dung thu thập:** Tên phim, thể loại, thời lượng, quốc gia, điểm IMDb, mô tả,...
-- **Kết quả:** Dữ liệu thô (raw data) được lưu dưới dạng JSON hoặc CSV tại local.
+Hệ thống crawler được lên lịch chạy định kỳ để thu thập dữ liệu phim từ nhiều nguồn website khác nhau. Quá trình này đảm bảo cập nhật đầy đủ thông tin phim mới như: tên phim, thể loại, quốc gia, thời lượng, điểm đánh giá,...
 
 ---
 
-### 🔄 2. Load vào Data Lake (HDFS)
+### 🗃 2. Lưu Trữ Dữ Liệu Thô
 
-- **Mục tiêu:** Lưu trữ dữ liệu thô vào hệ thống lưu trữ phân tán HDFS để dễ dàng chia sẻ và xử lý song song.
-- **Công cụ:** `Hadoop HDFS` (có thể thông qua `PyArrow`, `hdfsCLI`, hoặc command line).
-- **Cấu trúc lưu trữ:** Dữ liệu được lưu theo ngày hoặc theo nguồn crawl.
+Dữ liệu sau khi crawl được lưu dưới dạng tệp JSON trong hệ thống tệp cục bộ. Đây là nguồn dữ liệu thô ban đầu phục vụ cho các bước xử lý tiếp theo.
 
 ---
 
-### ⚙️ 3. Kafka Stream (Real-time Trigger)
+### ☁️ 3. Nạp Dữ Liệu Vào Data Lake (HDFS)
 
-- **Mục tiêu:** Kích hoạt xử lý dữ liệu khi có dữ liệu mới trong HDFS.
-- **Công cụ:** `Apache Kafka` (Producer-Consumer).
-  - **Producer** gửi thông điệp chứa thông tin về file mới trong HDFS.
-  - **Consumer** (Spark hoặc Flink) nhận thông tin và bắt đầu ETL.
+Các tệp JSON sẽ được chuyển vào hệ thống Data Lake dựa trên nền tảng HDFS. Điều này cho phép lưu trữ dữ liệu khối lượng lớn, hỗ trợ khả năng truy xuất và xử lý phân tán hiệu quả.
 
 ---
 
-### 🧹 4. Transform – Làm Sạch và Chuyển Đổi Dữ Liệu
+### 🔄 4. ETL Cơ Bản (Kafka Triggered)
 
-- **Mục tiêu:** Chuẩn hóa dữ liệu, xử lý lỗi, chuyển đổi kiểu dữ liệu, loại bỏ trùng lặp,...
-- **Công cụ:** `Apache Spark` hoặc `Pandas` (nếu dữ liệu nhỏ).
-- **Ví dụ xử lý:**
-  - Chuẩn hóa định dạng thời gian
-  - Bóc tách thể loại thành list
-  - Loại bỏ phim trùng lặp hoặc thiếu thông tin quan trọng
+Sau khi lưu trữ vào HDFS, hệ thống sử dụng Kafka để kích hoạt chuỗi xử lý ETL. Bao gồm:
 
----
+- **Extract:** Đọc dữ liệu từ HDFS.
+- **Transform:** Làm sạch, chuẩn hóa, xử lý định dạng dữ liệu (chuyển đổi kiểu dữ liệu, tách thể loại, chuẩn hóa thời gian...).
+- **Load:** Lưu lại dữ liệu đã xử lý vào một thư mục HDFS mới (phục vụ bước xử lý nâng cao sau này).
 
-### 🛢 5. Load – Tải Dữ Liệu vào PostgreSQL
-
-- **Mục tiêu:** Lưu trữ dữ liệu đã xử lý vào hệ quản trị cơ sở dữ liệu quan hệ để dễ dàng truy vấn và phân tích.
-- **Công cụ:** `psycopg2`, `SQLAlchemy`, hoặc `Spark JDBC connector`.
-- **Thiết kế CSDL:** Thiết kế bảng `movies` chứa các thông tin phim.
+Kafka đảm nhiệm vai trò điều phối, truyền tin, đảm bảo các bước ETL được tự động kích hoạt khi có dữ liệu mới.
 
 ---
 
-### ☁️ 6. Đồng Bộ lên PostgreSQL Cloud (Neon)
+### 🗂 5. Phân Vùng Dữ Liệu
 
-- **Mục tiêu:** Đẩy dữ liệu từ PostgreSQL local lên PostgreSQL cloud (Neon) để sử dụng ở môi trường production hoặc chia sẻ công khai.
-- **Công cụ:** `pg_dump` + `pg_restore` hoặc đồng bộ qua `DBeaver`, `pgAdmin`, `Airbyte`, hoặc trực tiếp qua `psql`.
-- **Lưu ý:** Cần thiết lập kết nối SSL nếu Neon yêu cầu.
+Dữ liệu trong HDFS được phân vùng theo ngày crawl hoặc theo thể loại phim nhằm tối ưu cho các truy vấn phân tích và tìm kiếm về sau.
 
 ---
 
-## ✅ Tổng Quan Pipeline
+### ⚙️ 6. Xử Lý Nâng Cao (Apache Spark)
 
-```mermaid
-graph TD
-  A[Crawl dữ liệu phim từ web] --> B[Lưu vào Data Lake (HDFS)]
-  B --> C[Kích hoạt Kafka]
-  C --> D[Xử lý bằng Spark/Flink]
-  D --> E[Lưu vào PostgreSQL local]
-  E --> F[Đồng bộ lên PostgreSQL Cloud (Neon)]
+Apache Spark được tích hợp để xử lý nâng cao dữ liệu, ví dụ:
+
+- Lọc và phân loại phim theo điểm đánh giá
+- Phân tích xu hướng thể loại phổ biến
+- Chuẩn hóa dữ liệu từ nhiều nguồn
+- Tạo các bảng tổng hợp phục vụ phân tích
+
+---
+
+### 🛢 7. Tải Vào PostgreSQL
+
+Dữ liệu đã xử lý sẽ được nạp vào hệ quản trị cơ sở dữ liệu PostgreSQL, phục vụ cho:
+
+- Các truy vấn nhanh, chính xác
+- Trích xuất dữ liệu phục vụ frontend hoặc API
+
+---
+
+### ☁️ 8. Đồng Bộ Lên PostgreSQL Cloud (Neon)
+
+Dữ liệu sau khi lưu vào PostgreSQL cục bộ sẽ được đẩy lên nền tảng PostgreSQL cloud Neon để:
+
+- Dễ dàng triển khai ứng dụng từ xa
+- Chia sẻ dữ liệu với frontend hoặc các team khác
+- Triển khai phân tích real-time trên cloud
+
+---
+
+### 🚀 Ứng Dụng Thực Tế
+
+- **API:** Xây dựng API cho hệ thống quản lý phim, cho phép người dùng truy vấn thông tin phim, lọc theo thể loại, điểm IMDb,...
+- **Dashboard phân tích:** Triển khai bảng điều khiển giúp quản trị viên nắm được xu hướng phim, lượt đánh giá cao/thấp,...
+- **Tích hợp gợi ý phim:** Dựa trên lịch sử hoặc xu hướng phổ biến từ phân tích Spark.
+
+---
+
+### 📅 Phân Phối Quy Trình Làm Việc
+
+Toàn bộ pipeline từ crawl → HDFS → Kafka ETL → Spark → PostgreSQL được điều phối và tự động hóa thông qua **Apache Airflow**, đảm bảo:
+
+- Quản lý lịch trình chạy task dễ dàng
+- Xử lý lỗi và retry linh hoạt
+- Theo dõi trực quan luồng dữ liệu
+
 
