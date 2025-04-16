@@ -33,19 +33,19 @@ Mô tả các tác vụ:
 ---
 ## Quy Trình Xử Lý Dữ Liệu
 
-### 1. Thu Thập Dữ Liệu
+1. Thu Thập Dữ Liệu
 
 Hệ thống crawler được lên lịch chạy định kỳ để thu thập dữ liệu phim từ nhiều nguồn website khác nhau. Quá trình này đảm bảo cập nhật đầy đủ thông tin phim mới như: tên phim, thể loại, quốc gia, thời lượng, điểm đánh giá,...
 
-### 2. Lưu Trữ Dữ Liệu Thô
+2. Lưu Trữ Dữ Liệu Thô
 
 Dữ liệu sau khi crawl được lưu dưới dạng tệp JSON trong hệ thống tệp cục bộ. Đây là nguồn dữ liệu thô ban đầu phục vụ cho các bước xử lý tiếp theo.
 
-### 3. Nạp Dữ Liệu Vào Data Lake (HDFS)
+3. Nạp Dữ Liệu Vào Data Lake (HDFS)
 
 Các tệp JSON sẽ được chuyển vào hệ thống Data Lake dựa trên nền tảng HDFS. Điều này cho phép lưu trữ dữ liệu khối lượng lớn, hỗ trợ khả năng truy xuất và xử lý phân tán hiệu quả.
 
-### 4. ETL Cơ Bản (Kafka Triggered)
+4. ETL Cơ Bản (Kafka Triggered)
 
 Sau khi lưu trữ vào HDFS, hệ thống sử dụng Kafka để kích hoạt chuỗi xử lý ETL. Bao gồm:
 
@@ -56,11 +56,11 @@ Sau khi lưu trữ vào HDFS, hệ thống sử dụng Kafka để kích hoạt 
 Kafka đảm nhiệm vai trò điều phối, truyền tin, đảm bảo các bước ETL được tự động kích hoạt khi có dữ liệu mới.
 
 
-### 5. Phân Vùng Dữ Liệu
+5. Phân Vùng Dữ Liệu
 
 Dữ liệu trong HDFS được phân vùng theo ngày crawl hoặc theo thể loại phim nhằm tối ưu cho các truy vấn phân tích và tìm kiếm về sau.
 
-### 6. Xử Lý Nâng Cao (Apache Spark)
+6. Xử Lý Nâng Cao (Apache Spark)
 
 Apache Spark được tích hợp để xử lý nâng cao dữ liệu, ví dụ:
 
@@ -76,7 +76,7 @@ Dữ liệu đã xử lý sẽ được nạp vào hệ quản trị cơ sở d�
 - Các truy vấn nhanh, chính xác
 - Trích xuất dữ liệu phục vụ frontend hoặc API
 
-### 8. Đồng Bộ Lên PostgreSQL Cloud (Neon)
+8. Đồng Bộ Lên PostgreSQL Cloud (Neon)
 
 Dữ liệu sau khi lưu vào PostgreSQL cục bộ sẽ được đẩy lên nền tảng PostgreSQL cloud Neon để:
 
@@ -84,14 +84,14 @@ Dữ liệu sau khi lưu vào PostgreSQL cục bộ sẽ được đẩy lên n�
 - Chia sẻ dữ liệu với frontend hoặc các team khác
 - Triển khai phân tích real-time trên cloud
 
-### Ứng Dụng Thực Tế
+#### Ứng Dụng Thực Tế
 
 - **API:** Xây dựng API cho hệ thống quản lý phim, cho phép người dùng truy vấn thông tin phim, lọc theo thể loại, điểm IMDb,...
 - **Dashboard phân tích:** Triển khai bảng điều khiển giúp quản trị viên nắm được xu hướng phim, lượt đánh giá cao/thấp,...
 - **Tích hợp gợi ý phim:** Dựa trên lịch sử hoặc xu hướng phổ biến từ phân tích Spark.
 
 
-### Phân Phối Quy Trình Làm Việc
+#### Phân Phối Quy Trình Làm Việc
 
 Toàn bộ pipeline từ crawl → HDFS → Kafka ETL → Spark → PostgreSQL được điều phối và tự động hóa thông qua **Apache Airflow**, đảm bảo:
 
