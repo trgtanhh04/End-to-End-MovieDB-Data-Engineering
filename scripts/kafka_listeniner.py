@@ -12,7 +12,7 @@ load_dotenv()
 
 # Kafka configuration
 TOPIC_NEW_DATA = "new_data"
-# TOPIC_UPDATE_WAREHOUSE = "update_warehouse"
+TOPIC_UPDATE_WAREHOUSE = "update_warehouse"
 KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", '172.31.70.181:9092')
 
 # Initialize logging
