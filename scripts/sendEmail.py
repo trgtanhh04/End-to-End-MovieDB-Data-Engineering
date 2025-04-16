@@ -169,8 +169,7 @@ def generate_pipeline_html_report(pipeline_status: Dict) -> str:
             <h3>Summary</h3>
             <div class="info">
                 <p><strong>Date:</strong> {run_date}</p>
-                <p><strong>Start Time:</strong> {start_time.strftime('%Y-%m-%d %H:%M:%S') if start_time else 'N/A'}</p>
-                <p><strong>End Time:</strong> {end_time.strftime('%Y-%m-%d %H:%M:%S') if end_time else 'N/A'}</p>
+                <p><strong>Execute by:</strong> Tien Anh</p>
                 <p><strong>Total Duration:</strong> {execution_time:.2f} seconds</p>
                 <p><strong>Status:</strong> <span class="badge {overall_status.lower()}">{overall_status}</span></p>
             </div>

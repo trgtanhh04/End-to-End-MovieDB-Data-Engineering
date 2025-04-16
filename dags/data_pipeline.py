@@ -7,6 +7,7 @@ import logging
 import os
 from dotenv import load_dotenv
 import runpy
+import subprocess
 
 # Load biến môi trường
 load_dotenv(dotenv_path='/home/tienanh/End-to-End Movie Recommendation/.env')
@@ -32,6 +33,7 @@ if project_folder not in os.sys.path:
     print(f"Đã thêm {project_folder} vào sys.path")
 
 from sendEmail import GmailSender, generate_pipeline_html_report
+from scripts.kafka_listeniner import kafka_send_message, trigger_new_data
 
 pipeline_status = {
     'start_time': datetime.now(),
@@ -62,35 +64,6 @@ dag = DAG(
 
 
 # =========== pipeline status ============
-# def update_pipeline_status(task_id, status, **kwargs):
-#     # pipeline_status['tasks'][task_id] = {}
-#     if task_id  in pipeline_status['tasks']:
-#         pipeline_status['tasks'][task_id] = {
-#             'status': status,
-#             'start_time': kwargs.get('start_time', datetime.now()),
-#         }
-#     else:
-#         pipeline_status['tasks'][task_id]['status'] = status
-    
-#     if status in ['success', 'failed']:
-#         pipeline_status['tasks'][task_id]['end_time'] = kwargs.get('end_time', datetime.now())
-       
-#         if 'start_time' not in pipeline_status['tasks'][task_id]:
-#             start = pipeline_status['tasks'][task_id]['start_time']
-#             end = pipeline_status['tasks'][task_id]['end_time']
-#             excution_time = (end - start).total_seconds()
-#             pipeline_status['tasks'][task_id]['execution_time'] = excution_time
-
-#     if 'error' in kwargs:
-#         pipeline_status['tasks'][task_id]['error'] = kwargs['error']
-    
-#     for key, value in kwargs.items():
-#         if key not in ['start_time', 'end_time', 'error']:
-#             pipeline_status['tasks'][task_id][key] = value
-    
-#     if status == 'failed':
-#         pipeline_status['overall_status'] = 'failed'
-
 def update_pipeline_status(task_id, status, **kwargs):
     # Kiểm tra nếu task_id không có trong pipeline_status['tasks'], thì khởi tạo task mới
     if task_id not in pipeline_status['tasks']:
@@ -117,6 +90,8 @@ def update_pipeline_status(task_id, status, **kwargs):
         if key not in ['start_time', 'end_time', 'error']:
             pipeline_status['tasks'][task_id][key] = value
     
+    if status == 'running':
+        pipeline_status['overall_status'] = 'running'
     if status == 'failed':
         pipeline_status['overall_status'] = 'failed'
 
@@ -236,6 +211,7 @@ def run_craw_data(**kwargs):
 
 # Task 2: Chạy script convert_to_json.py
 def run_convert_to_json(**kwargs):
+
     task_id = kwargs['task_instance'].task_id
     logging.info(f"running {task_id}")
     update_pipeline_status(task_id, 'running', start_time=datetime.now())
@@ -353,6 +329,44 @@ def run_load_to_datalake(**kwargs):
         )
         raise
 
+
+# Task 4: Chay ETL
+def trigger_kafka_etl(**kwargs):
+    task_id = kwargs['task_instance'].task_id
+    logging.info(f"running {task_id}")
+    update_pipeline_status(task_id, 'running', start_time=datetime.now())
+
+    try:
+        # Gửi thông điệp đến Kafka để kích hoạt ETL
+        message = {
+            "status": "new_data",
+            "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            "source": "test_producer"
+        }
+        trigger_new_data(timestamp=None)
+        logging.info(f"Đã gửi thông điệp đến Kafka: {message}")
+
+        update_pipeline_status(
+            task_id, 
+            'success',
+            start_time=datetime.now(),
+        )
+
+        return {
+            'status': 'success',
+            'message': 'Đã gửi thông điệp đến Kafka thành công',
+            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            "user": "tienanh",
+        }
+    except Exception as e:
+        logging.error(f"Lỗi khi gửi thông điệp đến Kafka: {e}", exc_info=True)
+        update_pipeline_status(
+            task_id, 
+            'failed',
+            error=str(e),
+        )
+        raise
+
 # Task 4: Chạy script ETL
 def run_etl(**kwargs):
     task_id = kwargs['task_instance'].task_id
@@ -413,7 +427,74 @@ def run_etl(**kwargs):
         raise
     
 
-    
+
+# Task 5: chạy script gửi app
+# def run_app(**kwargs):
+#     task_id = kwargs['task_instance'].task_id
+#     logging.info(f"running {task_id}")
+#     update_pipeline_status(task_id, 'running', start_time=datetime.now())
+
+#     try:
+#         project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#         app_path = os.path.join(project_root, "app", "app.py")
+#         # app_path = '/home/tienanh/End-to-End Movie Recommendation/app/app.py'
+#         # print(app_path)
+#         if not os.path.exists(app_path):
+#             logging.error(f"File {app_path} không tồn tại")
+#             raise FileNotFoundError(f"File {app_path} không tồn tại")
+        
+#         logging.info(f"Đang chạy file {app_path}")
+#         start_time = datetime.now()
+
+#         try:
+#             # Chạy script như một chương trình riêng biệt
+#             subprocess.Popen(
+#                 ["streamlit", "run", app_path],
+#                 stdout=subprocess.DEVNULL,
+#                 stderr=subprocess.DEVNULL,
+#                 preexec_fn=os.setsid  # tách group tiến trình để tránh bị kill theo
+                
+#             )
+#         except Exception as e:
+#             logging.error(f"Lỗi khi chạy script app: {e}", exc_info=True)
+#             raise
+
+#         end_time = datetime.now()
+#         execution_time = (end_time - start_time).total_seconds()
+#         logging.info(f"Thời gian thực thi: {execution_time} giây")
+
+#         update_pipeline_status(
+#             task_id, 
+#             'success',
+#             start_time=start_time,
+#             end_time=end_time,
+#             execution_time=execution_time,
+#         )
+
+#         return {
+#             'status': 'success',
+#             'message': 'Đã chạy thành công app',
+#             'execution_time': execution_time,
+#             'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+#             "user": "tienanh",
+#         }
+#     except FileNotFoundError as e:
+#         logging.error(f"Lỗi: {e}", exc_info=True)
+#         update_pipeline_status(
+#             task_id, 
+#             'failed',
+#             error=str(e),
+#         )
+#         raise
+#     except Exception as e:
+#         logging.error(f"Lỗi khi chạy task {task_id}: {e}", exc_info=True)
+#         update_pipeline_status(
+#             task_id, 
+#             'failed',
+#             error=str(e),
+#         )
+#         raise
+
 
 # Task 5: Gửi email báo cáo
 def send_pipeline_report_email(**kwargs):
@@ -521,14 +602,24 @@ load_to_datalake_task = PythonOperator(
     dag=dag,
 )
 
-etl_task = PythonOperator(
-    task_id='ETL',
-    python_callable=run_etl,
+trigger_kafka_etl_task = PythonOperator(
+    task_id='trigger_kafka_etl',
+    python_callable=trigger_kafka_etl,
     on_success_callback=task_success_callback,
     on_failure_callback=task_failure_callback,
     provide_context=True,
     dag=dag,
 )
+
+
+# etl_task = PythonOperator(
+#     task_id='ETL',
+#     python_callable=run_etl,
+#     on_success_callback=task_success_callback,
+#     on_failure_callback=task_failure_callback,
+#     provide_context=True,
+#     dag=dag,
+# )
 
 send_email_task = PythonOperator(
     task_id='send_email',
@@ -540,4 +631,4 @@ send_email_task = PythonOperator(
 )
 
 #=========== task dependencies ============
-craw_data_task >> convert_to_json_task >> load_to_datalake_task >> etl_task >> send_email_task
+craw_data_task >> convert_to_json_task >> load_to_datalake_task >> trigger_kafka_etl_task  >> send_email_task

@@ -530,6 +530,10 @@ def main():
         df.show(5)
 
         df_transform = trans_form(df)
+        df_transform.coalesce(1).write \
+            .mode("overwrite") \
+            .option("header", "true") \
+            .csv("file:///home/tienanh/End-to-End Movie Recommendation/data/data_processed.csv")
         logger.info("Dữ liệu sau khi transform:")
         df_transform.show(5)
         df_transform.printSchema()

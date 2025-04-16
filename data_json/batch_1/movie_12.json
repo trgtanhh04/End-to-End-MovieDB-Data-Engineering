@@ -1,20 +1,20 @@
 {
-    "id": 762509,
-    "name": "Mufasa: Vua S\u01b0 T\u1eed(2024)",
-    "release_year": "12/20/2024 (VN",
-    "genre": "['Phim Phi\u00eau L\u01b0u', 'Phim Gia \u0110\u00ecnh', 'Phim Ho\u1ea1t H\u00ecnh']",
-    "runtime": "1h 58m",
-    "score": 74,
-    "director": "Barry Jenkins",
+    "id": 1125899,
+    "name": "Cleaner(2025)",
+    "release_year": "05/02/2025 (GB",
+    "genre": "['Phim H\u00e0nh \u0110\u1ed9ng', 'Phim G\u00e2y C\u1ea5n']",
+    "runtime": "1h 36m",
+    "score": 65,
+    "director": "Martin Campbell",
     "status": "Released",
     "language": "Ti\u1ebfng Anh",
-    "budget": "$200,000,000.00",
-    "revenue": "$721,046,090.00",
-    "image": "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/yTiVUcBeSUpmsPSbmzzK2JHeBjJ.jpg",
-    "overview": "Mufasa: Vua S\u01b0 T\u1eed l\u00e0 ph\u1ea7n ti\u1ec1n truy\u1ec7n c\u1ee7a b\u1ed9 phim ho\u1ea1t h\u00ecnh Vua S\u01b0 T\u1eed tr\u1ee9 danh, k\u1ec3 v\u1ec1 cu\u1ed9c \u0111\u1eddi c\u1ee7a Mufasa - cha c\u1ee7a Simba. Phim l\u00e0 h\u00e0nh tr\u00ecnh Mufasa t\u1eeb m\u1ed9t ch\u00fa s\u01b0 t\u1eed m\u1ed3 c\u00f4i l\u1ea1c \u0111\u00e0n tr\u1edf th\u00e0nh v\u1ecb vua s\u01b0 t\u1eed huy\u1ec1n tho\u1ea1i c\u1ee7a X\u1ee9 Vua (Pride Land). Ngo\u00e0i ra, qu\u00e1 kh\u1ee9 v\u1ec1 t\u00ean ph\u1ea3n di\u1ec7n Scar v\u00e0 h\u00e0nh tr\u00ecnh h\u1eafc h\u00f3a c\u1ee7a h\u1eafn c\u0169ng s\u1ebd \u0111\u01b0\u1ee3c ph\u01a1i b\u00e0y trong ph\u1ea7n phim n\u00e0y.",
+    "budget": "-",
+    "revenue": "-",
+    "image": "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/mwzDApMZAGeYCEVjhegKvCzDX0W.jpg",
+    "overview": "When a group of radical activists take over an energy company's annual gala, seizing 300 hostages, an ex-soldier turned window cleaner suspended 50 storeys up on the outside of the building must save those trapped inside, including her younger brother.",
     "metadata": {
         "page": 1,
         "index": 12,
-        "time_craw": "2025-04-12 23:17:57"
+        "time_craw": "2025-04-08 15:08:20"
     }
 }
