@@ -41,54 +41,54 @@ Mô tả các tác vụ:
 
 **1. Thu Thập Dữ Liệu**
 
-Hệ thống crawler được lên lịch chạy định kỳ để thu thập dữ liệu phim từ nhiều nguồn website khác nhau. Quá trình này đảm bảo cập nhật đầy đủ thông tin phim mới như: tên phim, thể loại, quốc gia, thời lượng, điểm đánh giá,...
+- Hệ thống crawler được lên lịch chạy định kỳ để thu thập dữ liệu phim từ nhiều nguồn website khác nhau. Quá trình này đảm bảo cập nhật đầy đủ thông tin phim mới như: tên phim, thể loại, quốc gia, thời lượng, điểm đánh giá,...
 
 **2. Lưu Trữ Dữ Liệu Thô**
 
-Dữ liệu sau khi crawl được lưu dưới dạng tệp JSON trong hệ thống tệp cục bộ. Đây là nguồn dữ liệu thô ban đầu phục vụ cho các bước xử lý tiếp theo.
+- Dữ liệu sau khi crawl được lưu dưới dạng tệp JSON trong hệ thống tệp cục bộ. Đây là nguồn dữ liệu thô ban đầu phục vụ cho các bước xử lý tiếp theo.
 
 **3. Nạp Dữ Liệu Vào Data Lake (HDFS)**
 
-Các tệp JSON sẽ được chuyển vào hệ thống Data Lake dựa trên nền tảng HDFS. Điều này cho phép lưu trữ dữ liệu khối lượng lớn, hỗ trợ khả năng truy xuất và xử lý phân tán hiệu quả.
+- Các tệp JSON sẽ được chuyển vào hệ thống Data Lake dựa trên nền tảng HDFS. Điều này cho phép lưu trữ dữ liệu khối lượng lớn, hỗ trợ khả năng truy xuất và xử lý phân tán hiệu quả.
 
 **4. ETL Cơ Bản (Kafka Triggered)**
 
-Sau khi lưu trữ vào HDFS, hệ thống sử dụng Kafka để kích hoạt chuỗi xử lý ETL. Bao gồm:
+- Sau khi lưu trữ vào HDFS, hệ thống sử dụng Kafka để kích hoạt chuỗi xử lý ETL. Bao gồm:
 
-- **Extract:** Đọc dữ liệu từ HDFS.
-- **Transform:** Làm sạch, chuẩn hóa, xử lý định dạng dữ liệu (chuyển đổi kiểu dữ liệu, tách thể loại, chuẩn hóa thời gian...).
-- **Load:** Lưu lại dữ liệu đã xử lý vào một thư mục HDFS mới (phục vụ bước xử lý nâng cao sau này).
+  - **Extract:** Đọc dữ liệu từ HDFS.
+  - **Transform:** Làm sạch, chuẩn hóa, xử lý định dạng dữ liệu (chuyển đổi kiểu dữ liệu, tách thể loại, chuẩn hóa thời gian...).
+  - **Load:** Lưu lại dữ liệu đã xử lý vào một thư mục HDFS mới (phục vụ bước xử lý nâng cao sau này).
 
-Kafka đảm nhiệm vai trò điều phối, truyền tin, đảm bảo các bước ETL được tự động kích hoạt khi có dữ liệu mới.
+- Kafka đảm nhiệm vai trò điều phối, truyền tin, đảm bảo các bước ETL được tự động kích hoạt khi có dữ liệu mới.
 
 
 **5. Phân Vùng Dữ Liệu**
 
-Dữ liệu trong HDFS được phân vùng theo ngày crawl hoặc theo thể loại phim nhằm tối ưu cho các truy vấn phân tích và tìm kiếm về sau.
+- Dữ liệu trong HDFS được phân vùng theo ngày crawl hoặc theo thể loại phim nhằm tối ưu cho các truy vấn phân tích và tìm kiếm về sau.
 
 **6. Xử Lý Nâng Cao (Apache Spark)**
 
-Apache Spark được tích hợp để xử lý nâng cao dữ liệu, ví dụ:
+- Apache Spark được tích hợp để xử lý nâng cao dữ liệu, ví dụ:
 
-- Lọc và phân loại phim theo điểm đánh giá
-- Phân tích xu hướng thể loại phổ biến
-- Chuẩn hóa dữ liệu từ nhiều nguồn
-- Tạo các bảng tổng hợp phục vụ phân tích
+  - Lọc và phân loại phim theo điểm đánh giá
+  - Phân tích xu hướng thể loại phổ biến
+  - Chuẩn hóa dữ liệu từ nhiều nguồn
+  - Tạo các bảng tổng hợp phục vụ phân tích
 
 **7. Tải Vào PostgreSQL**
 
-Dữ liệu đã xử lý sẽ được nạp vào hệ quản trị cơ sở dữ liệu PostgreSQL, phục vụ cho:
+- Dữ liệu đã xử lý sẽ được nạp vào hệ quản trị cơ sở dữ liệu PostgreSQL, phục vụ cho:
 
-- Các truy vấn nhanh, chính xác
-- Trích xuất dữ liệu phục vụ frontend hoặc API
+  - Các truy vấn nhanh, chính xác
+  - Trích xuất dữ liệu phục vụ frontend hoặc API
 
 **8. Đồng Bộ Lên PostgreSQL Cloud (Neon)**
 
-Dữ liệu sau khi lưu vào PostgreSQL cục bộ sẽ được đẩy lên nền tảng PostgreSQL cloud Neon để:
+- Dữ liệu sau khi lưu vào PostgreSQL cục bộ sẽ được đẩy lên nền tảng PostgreSQL cloud Neon để:
 
-- Dễ dàng triển khai ứng dụng từ xa
-- Chia sẻ dữ liệu với frontend hoặc các team khác
-- Triển khai phân tích real-time trên cloud
+  - Dễ dàng triển khai ứng dụng từ xa
+  - Chia sẻ dữ liệu với frontend hoặc các team khác
+  - Triển khai phân tích real-time trên cloud
 
 #### Ứng Dụng Thực Tế
 
@@ -99,10 +99,10 @@ Dữ liệu sau khi lưu vào PostgreSQL cục bộ sẽ được đẩy lên n�
 
 #### Phân Phối Quy Trình Làm Việc
 
-Toàn bộ pipeline từ crawl → HDFS → Kafka ETL → Spark → PostgreSQL được điều phối và tự động hóa thông qua **Apache Airflow**, đảm bảo:
+- Toàn bộ pipeline từ crawl → HDFS → Kafka ETL → Spark → PostgreSQL được điều phối và tự động hóa thông qua **Apache Airflow**, đảm bảo:
 
-- Quản lý lịch trình chạy task dễ dàng
-- Xử lý lỗi và retry linh hoạt
-- Theo dõi trực quan luồng dữ liệu
+  - Quản lý lịch trình chạy task dễ dàng
+  - Xử lý lỗi và retry linh hoạt
+  - Theo dõi trực quan luồng dữ liệu
 
 
