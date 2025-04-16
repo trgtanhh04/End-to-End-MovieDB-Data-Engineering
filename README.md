@@ -110,33 +110,37 @@ Mô tả các tác vụ:
 
 Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành phần quan trọng trong dự án của bạn:
 
-### 1. **Airflow UI**  
+### 1. **Giao diện web**
+<p align="center">
+  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/UI_Streamlit_1.png" width="48%" alt="Bảng điều khiển quản trị">
+  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/UI_Streamlit_2.png" width="48%" alt="Giao diện khách hàng">
+</p>
+
+**Mô tả**: Đây là giao diện người dùng được xây dựng bằng **Streamlit** – một framework Python mạnh mẽ cho việc xây dựng các ứng dụng web phục vụ trực quan hóa dữ liệu.  
+- Giao diện bên trái (UI_Streamlit_1) thể hiện phần **dashboard**, nơi hiển thị thông tin tổng quan về các bộ phim, và thanh tìm kiếm theo sở thích người dùng.  
+- Giao diện bên phải (UI_Streamlit_2) là phần **detail**, nơi người dùng có thể tìm kiếm phim, xem thông tin chi tiết và đưa ra lựa chọn dựa trên các đề xuất từ mô hình phân tích.
+
+
+### 2. **Airflow UI**  
 <p align="center">
   <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Airflow_UI.png" width="80%" alt="Mô hình MVC">
 </p>
 
 **Mô tả**: Đây là giao diện người dùng của **Apache Airflow**, công cụ điều phối chính trong quy trình ETL của dự án. Giao diện này cho phép bạn theo dõi các pipeline, kiểm tra lịch trình chạy và theo dõi các tác vụ.
 
-### 2. **Data in HDFS**  
+### 3. **Data in HDFS**  
 <p align="center">
   <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Data_In_HDFS.png" width="80%" alt="Mô hình MVC">
 </p>
 
 **Mô tả**: Hình ảnh này minh họa cách dữ liệu được lưu trữ trong **HDFS** (Hadoop Distributed File System), nơi dữ liệu thô được lưu trữ và chuẩn bị cho các bước xử lý tiếp theo.
 
-### 3. **ERD For Database**  
+### 4. **ERD For Database**  
 <p align="center">
   <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/ERD_For_Database.png" width="80%" alt="Mô hình MVC">
 </p>
 
 **Mô tả**: **ERD (Entity-Relationship Diagram)** này mô tả cấu trúc cơ sở dữ liệu PostgreSQL, giúp hiểu rõ cách dữ liệu được lưu trữ và các mối quan hệ giữa các bảng trong hệ thống.
-
-### 4. **Model ML**  
-<p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Model_ML.png" width="80%" alt="Mô hình MVC">
-</p>
-
-**Mô tả**: Đây là mô hình học máy được xây dựng trên dữ liệu thu thập từ các bộ phim, giúp dự đoán các thông tin như mức độ phổ biến của các bộ phim dựa trên các đặc trưng như thể loại, năm phát hành và điểm IMDb.
 
 ### 5. **Send Gmail**  
 <p align="center">
@@ -145,11 +149,4 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 **Mô tả**: Hình ảnh này mô tả việc gửi email tự động khi các tác vụ trong **Airflow** hoàn tất, giúp người quản trị nhận thông báo kịp thời về trạng thái của quy trình xử lý dữ liệu.
 
-### 6. **UI Streamlit - 1**  
-![UI Streamlit 1](./UI_Streamlit_1.png)
-**Mô tả**: Giao diện người dùng của ứng dụng **Streamlit**, nơi người dùng có thể tìm kiếm và nhận các phân tích dữ liệu về các bộ phim từ hệ thống. Đây là phần giao diện tương tác cho người dùng cuối.
-
-### 7. **UI Streamlit - 2**  
-![UI Streamlit 2](./UI_Streamlit_2.png)
-**Mô tả**: Mô tả tiếp theo của giao diện ứng dụng **Streamlit**, với các chức năng và biểu đồ phân tích dữ liệu chi tiết hơn về các bộ phim, giúp người dùng đưa ra quyết định tốt hơn khi mua vé xem phim hoặc tham gia các hoạt động giải trí.
 
