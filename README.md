@@ -11,6 +11,42 @@
 ---
 
 ## Cấu trúc thư mục
+END-TO-END MOVIE RECOMMENDATION/
+│
+├── app/
+│   └── app.py                     # Tập tin chính chạy ứng dụng web/API
+│
+├── archive/                       # Lưu trữ các dữ liệu hoặc log cũ
+│   ├── json_data_20250416212459/  # Dữ liệu JSON batch với timestamp
+│   │   └── batch_1/
+│   │       └── convert_to_json.log
+│   └── load_to_hdfs.log           # Log của quá trình nạp dữ liệu vào HDFS
+│
+├── dags/
+│   └── data_pipeline.py          # DAG cho Airflow để quản lý pipeline dữ liệu
+│
+├── data/
+│   ├── data_processed1.csv       # Dữ liệu đã xử lý
+│   └── movies.csv                # Dữ liệu gốc phim
+│
+├── data_json/
+│   ├── batch_1/ ... batch_10/    # Các batch dữ liệu dạng JSON (phân theo nhóm)
+│
+├── imge/                         # Hình ảnh trực quan của đồ án
+│
+├── install/                      # Chứa các file cài đặt và setup môi trường
+│
+├── notebooks/                    # Notebook dùng cho exploratory data analysis, modeling, etc. đóng vai trò của một Data scientist
+│
+├── requirements/                 # Chứa file yêu cầu cài thư viện
+│
+├── scripts/                      # Các script xử lý dữ liệu, là thưu mục chính của đồ án đề cài đặt các quy trình Pipeline
+│
+├── .env                          # Biến môi trường như key, path,...
+├── .gitignore                    # File cấu hình Git để loại trừ các file/thư mục
+├── dataLake_architecture.txt     # Mô tả kiến trúc tổng thể hệ thống Data Lake
+└── README.md                     # Mô tả và hướng dẫn sử dụng dự án
+
 ---
 ## Kiến trúc pipeline
 <p align="center">
