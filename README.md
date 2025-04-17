@@ -152,6 +152,18 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 ---
 ## Hướng Dẫn Cài Đặt Dự Án
 
+### 0. Tải Project Về Máy
+
+```bash
+# Clone project từ GitHub về máy
+git clone https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering.git
+```
+
+```bash
+# Điều hướng vào thư mục project
+cd <tên-thư-mục-project>
+```
+
 ### 1. Cài Đặt Hadoop Trên Ubuntu
 
 ```bash
