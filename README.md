@@ -313,3 +313,90 @@ start-yarn.sh
 jps
 # Kết quả cần có: NameNode, DataNode, SecondaryNameNode, ResourceManager, NodeManager, Jps
 ```
+
+### 2. Cài Đặt Kafka Trên Ubuntu
+
+```bash
+# 1. Tải Kafka và giải nén
+wget https://downloads.apache.org/kafka/3.9.0/kafka_2.13-3.9.0.tgz
+tar -xvzf kafka_2.13-3.9.0.tgz
+mv kafka_2.13-3.9.0 /home/tienanh/kafka
+```
+
+```bash
+# 2. Đi vào thư mục Kafka
+cd ~/kafka
+```
+
+```bash
+# 3. Cấu hình Kafka
+
+# 3a. Tạo service cho Kafka
+sudo nano /etc/systemd/system/kafka.service
+```
+
+Nội dung file `kafka.service`:
+```ini
+[Unit]
+Description=Apache Kafka Server
+Documentation=http://kafka.apache.org/documentation.html
+Requires=zookeeper.service
+
+[Service]
+Type=simple
+Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"
+ExecStart=/home/tienanh/kafka/bin/kafka-server-start.sh /home/tienanh/kafka/config/server.properties
+ExecStop=/home/tienanh/kafka/bin/kafka-server-stop.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+# 3b. Tạo service cho Zookeeper
+sudo nano /etc/systemd/system/zookeeper.service
+```
+
+Nội dung file `zookeeper.service`:
+```ini
+[Unit]
+Description=Apache Zookeeper server
+Documentation=http://zookeeper.apache.org
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+ExecStart=/home/tienanh/kafka/bin/zookeeper-server-start.sh /home/tienanh/kafka/config/zookeeper.properties
+ExecStop=/home/tienanh/kafka/bin/zookeeper-server-stop.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+# 4. Khởi động Kafka & Zookeeper
+
+# Đi vào thư mục Kafka
+cd ~/kafka
+
+# Reload systemd để áp dụng các service mới
+sudo systemctl daemon-reload
+
+# Bật và kiểm tra Zookeeper
+sudo systemctl enable zookeeper
+sudo systemctl start zookeeper
+sudo systemctl status zookeeper
+
+# Bật và kiểm tra Kafka
+sudo systemctl enable kafka
+sudo systemctl start kafka
+sudo systemctl status kafka
+```
+
+```bash
+# Nếu Kafka gặp lỗi, bạn có thể chạy thủ công bằng lệnh:
+~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
+```
