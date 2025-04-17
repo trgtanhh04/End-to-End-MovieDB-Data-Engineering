@@ -400,3 +400,40 @@ sudo systemctl status kafka
 # Nếu Kafka gặp lỗi, bạn có thể chạy thủ công bằng lệnh:
 ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
 ```
+### 3. Cài Đặt Apache Spark Trên Ubuntu
+
+```bash
+# 1. Tải Spark 3.5.5
+wget https://dlcdn.apache.org/spark/spark-3.5.5/spark-3.5.5-bin-hadoop3.tgz
+```
+
+```bash
+# 2. Giải nén và di chuyển Spark vào /opt/spark
+tar -xvzf spark-3.5.5-bin-hadoop3.tgz
+sudo mv spark-3.5.5-bin-hadoop3 /opt/spark
+```
+
+```bash
+# 3. Cấu hình biến môi trường
+nano ~/.bashrc
+```
+
+Thêm các dòng sau vào cuối file `~/.bashrc`:
+```bash
+export SPARK_HOME=/opt/spark
+export PATH=$SPARK_HOME/bin:$PATH
+export PYSPARK_PYTHON=python3
+```
+
+```bash
+# Lưu file và áp dụng thay đổi
+source ~/.bashrc
+```
+
+```bash
+# 4. Khởi động Spark
+pyspark
+```
+
+- Truy cập cổng sau để xem giao diện người dùng (UI):  
+  [http://localhost:4040](http://localhost:4040)
