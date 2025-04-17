@@ -1,0 +1,31 @@
+/data_lake
+│
+├── /raw                        # Dữ liệu gốc, chưa xử lý
+│   └── /year=YYYY              # Phân chia theo năm
+│       └── /month=MM           # Phân chia theo tháng
+│           └── /day=DD         # Phân chia theo ngày
+│               └── /batch1     # Batch tải lên đầu tiên trong ngày
+│                   ├── movie_json1.json
+│                   ├── movie_json2.json
+│                   ├── ...
+|                   
+│               └── /batch2     # Batch khác trong cùng ngày
+│                   ├── movie_json1.json
+|                   ├── movie_json2.json
+|                   ├── ...
+│
+├── /metadata                  # Chứa thông tin mô tả cho dữ liệu
+│   ├── schema_definition.json # Định nghĩa schema của các file dữ liệu
+│   ├── ingestion_log.csv      # Nhật ký ingest dữ liệu vào raw zone
+│   ├── data_catalog.json      # Danh mục dữ liệu (tên bảng, mô tả, định dạng...)
+│
+├── /processed                 # Dữ liệu đã được làm sạch & chuẩn hóa (optional)
+│   └── /year=YYYY
+│       └── /month=MM
+│           └── /day=DD
+│               ├── cleaned_movie1.parquet
+│               └── cleaned_movie2.parquet
+│
+└── /analytics                 # Dữ liệu phục vụ phân tích, BI, ML...
+    ├── report1.csv
+    └── report2.csv
