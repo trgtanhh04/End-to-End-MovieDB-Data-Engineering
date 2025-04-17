@@ -437,3 +437,41 @@ pyspark
 
 - Truy cập cổng sau để xem giao diện người dùng (UI):  
   [http://localhost:4040](http://localhost:4040)
+
+### 4. Cài Đặt Apache Airflow Trên Ubuntu
+
+```bash
+# 1. Cài Đặt Airflow
+pip install apache-airflow
+```
+
+```bash
+# 2. Thiết Lập Biến Môi Trường
+nano ~/.bashrc
+```
+
+Thêm các dòng sau vào cuối file `~/.bashrc`:
+```bash
+export AIRFLOW_HOME=~/airflow
+export PATH=$PATH:$AIRFLOW_HOME/bin
+```
+
+Lưu file và áp dụng thay đổi:
+```bash
+source ~/.bashrc
+```
+
+```bash
+# 3. Cấu Hình Airflow
+nano ~/airflow/airflow.cfg
+```
+
+Một số cấu hình quan trọng trong file `airflow.cfg`:
+- `dags_folder`: Chỉ định thư mục chứa DAGs (`/home/tienanh/airflow/dags`).
+- `executor`: Đặt thành `LocalExecutor` hoặc `SequentialExecutor` tùy theo nhu cầu.
+
+---
+
+### Giao Diện Người Dùng
+
+- Truy cập giao diện Airflow tại địa chỉ: [http://localhost:8080](http://localhost:8080).
