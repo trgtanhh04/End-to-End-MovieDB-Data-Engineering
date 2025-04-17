@@ -149,7 +149,7 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 **Mô tả**: Hình ảnh này mô tả việc gửi email tự động khi các tác vụ trong **Airflow** hoàn tất, giúp người quản trị nhận thông báo kịp thời về trạng thái của quy trình xử lý dữ liệu.
 
-### 6. **Mô hình học máy dựa trên bộ dữ liệu**  
+### 6. **Machine learning**  
 <p align="center">
   <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/ML.png" width="100%" alt="Mô hình MVC">
 </p>
@@ -179,6 +179,7 @@ Tải các thư viện cần thiết trong folder **requirements**
 ```mermaid
 flowchart TD
     Start([Bắt đầu]) --> InstallOption{Bạn muốn cài đặt dự án như thế nào?}
+    InstallOption -->|Cài đặt bằng Docker| Docker[Hướng dẫn cài Docker]
     InstallOption -->|Cài đặt thủ công trên Ubuntu| Manual[Hướng dẫn cài đặt thủ công trên Ubuntu]
     Manual --> InstallHadoop
     InstallHadoop --> InstallKafka
