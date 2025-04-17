@@ -152,4 +152,134 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 ---
 
 ## Hướng Dẫn Cài Đặt Dự Án
+### 1. 
+# Cài Đặt Hadoop Trên Ubuntu
+
+# 1. Cài Java 8
+sudo apt update
+sudo apt install openjdk-8-jdk -y
+
+# Kiểm tra:
+java -version
+javac -version
+which javac
+readlink -f /usr/bin/javac
+# Ghi nhớ JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64/
+
+# 2. Tải Hadoop
+# Truy cập https://hadoop.apache.org/releases.html, tải bản mới nhất (vd: hadoop-3.4.1)
+tar -xvzf hadoop-3.4.1.tar.gz
+mv hadoop-3.4.1 ~/hadoop-3.4.1
+
+# 3. Cài SSH
+sudo apt install openssh-server openssh-client -y
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+ssh localhost
+
+# 4. Thiết lập biến môi trường
+gedit ~/.bashrc
+# Thêm vào cuối:
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+# Hadoop
+export HADOOP_HOME=~/hadoop-3.4.1
+export HADOOP_INSTALL=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+# Lưu file rồi chạy:
+source ~/.bashrc
+
+# 5. Cấu hình Hadoop
+
+# 5.1 Cấu hình JAVA_HOME trong hadoop-env.sh
+gedit ~/hadoop-3.4.1/etc/hadoop/hadoop-env.sh
+# Sửa dòng:
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+# 5.2 core-site.xml
+mkdir -p ~/hadoop-3.4.1/tmp
+gedit ~/hadoop-3.4.1/etc/hadoop/core-site.xml
+# Thêm trong <configuration>:
+<property>
+  <name>hadoop.tmp.dir</name>
+  <value>/home/tienanh/hadoop-3.4.1/tmp</value>
+</property>
+<property>
+  <name>fs.default.name</name>
+  <value>hdfs://localhost:9000</value>
+</property>
+
+# 5.3 mapred-site.xml
+cp ~/hadoop-3.4.1/etc/hadoop/mapred-site.xml.template ~/hadoop-3.4.1/etc/hadoop/mapred-site.xml
+gedit ~/hadoop-3.4.1/etc/hadoop/mapred-site.xml
+# Thêm:
+<property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+</property>
+
+# 5.4 hdfs-site.xml
+mkdir -p ~/hadoop-3.4.1/data/namenode
+mkdir -p ~/hadoop-3.4.1/data/datanode
+gedit ~/hadoop-3.4.1/etc/hadoop/hdfs-site.xml
+# Thêm:
+<property>
+  <name>dfs.replication</name>
+  <value>1</value>
+</property>
+<property>
+  <name>dfs.namenode.name.dir</name>
+  <value>/home/tienanh/hadoop-3.4.1/data/namenode</value>
+</property>
+<property>
+  <name>dfs.datanode.data.dir</name>
+  <value>/home/tienanh/hadoop-3.4.1/data/datanode</value>
+</property>
+
+# 5.5 yarn-site.xml
+gedit ~/hadoop-3.4.1/etc/hadoop/yarn-site.xml
+# Thêm:
+<property>
+  <name>yarn.nodemanager.aux-services</name>
+  <value>mapreduce_shuffle</value>
+</property>
+<property>
+  <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+  <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>127.0.0.1</value>
+</property>
+<property>
+  <name>yarn.acl.enable</name>
+  <value>0</value>
+</property>
+<property>
+  <name>yarn.nodemanager.env-whitelist</name>
+  <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PERPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+</property>
+<property>
+  <name>yarn.resourcemanager.webapp.address</name>
+  <value>0.0.0.0:8088</value>
+</property>
+
+# 6. Format hệ thống Hadoop
+cd ~
+hdfs namenode -format
+
+# 7. Khởi chạy Hadoop
+start-dfs.sh
+start-yarn.sh
+
+# 8. Kiểm tra tiến trình
+jps
+# Kết quả cần có: NameNode, DataNode, SecondaryNameNode, ResourceManager, NodeManager, Jps
 
