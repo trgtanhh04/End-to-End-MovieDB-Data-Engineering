@@ -151,6 +151,7 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 ---
 ## Hướng Dẫn Cài Đặt Dự Án
+- Đê hiểu rõ hơn về cách hoạt động và vận hành của các công cụ, cung nhưu luồng hoạt động mình sẽ đề xuất việc cài đặt các công cụ thủ công trên Ubuntu. Bạn cũng có thể dùng docker cho dự dán để tự động hóa và đóng gói nếu cần.
 
 ### 0. Tải Project Về Máy
 
@@ -184,14 +185,6 @@ flowchart TD
 ```
 
 #### **Cài Đặt Bằng Docker**
-
-```bash
-# 1. Kéo image Docker từ registry
-docker pull <image-name>
-
-# 2. Chạy các container
-docker-compose up -d
-```
 
 ---
 
