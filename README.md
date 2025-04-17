@@ -164,6 +164,8 @@ git clone https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering.git
 cd <tên-thư-mục-project>
 ```
 
+Tải các thư viện cần thiết trong folder **requirements**
+
 ### 1. Cài Đặt Hadoop Trên Ubuntu
 
 ```bash
