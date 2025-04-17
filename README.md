@@ -20,7 +20,9 @@ END-TO-END MOVIE RECOMMENDATION/
 ├── archive/                       # Lưu trữ các dữ liệu hoặc log cũ
 │   ├── json_data_20250416212459/  # Dữ liệu JSON batch với timestamp
 │   │   └── batch_1/
-│   │       └── convert_to_json.log
+│   │       └── movie_json_1.json
+|   |   └── bath_2 /
+|   |       └── movie_json_1.json
 │   └── load_to_hdfs.log           # Log của quá trình nạp dữ liệu vào HDFS
 │
 ├── dags/
@@ -43,7 +45,6 @@ END-TO-END MOVIE RECOMMENDATION/
 │
 ├── scripts/                      # Các script xử lý dữ liệu, là thưu mục chính của đồ án đề cài đặt các quy trình Pipeline
 │
-├── .env                          # Biến môi trường như key, path,...
 ├── .gitignore                    # File cấu hình Git để loại trừ các file/thư mục
 ├── dataLake_architecture.txt     # Mô tả kiến trúc tổng thể hệ thống Data Lake
 └── README.md                     # Mô tả và hướng dẫn sử dụng dự án
