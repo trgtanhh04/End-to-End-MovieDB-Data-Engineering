@@ -149,6 +149,15 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 **Mô tả**: Hình ảnh này mô tả việc gửi email tự động khi các tác vụ trong **Airflow** hoàn tất, giúp người quản trị nhận thông báo kịp thời về trạng thái của quy trình xử lý dữ liệu.
 
+### 6. **Mô hình học máy dựa trên bộ dữ liệu**  
+<p align="center">
+  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/ML.png" width="100%" alt="Mô hình MVC">
+</p>
+
+**Mô tả**: 
+- Áp dụng các mô hình học máy dựa trên tập dữ liệu đã làm sạch, để đưa ra các nhận xét, chọn ra mô hình tối ưu để đưa vào dự đoán.
+- Ứng dụng các mô hình tỏng việc dự đoán về tiềm năng của các bộ phim trong tương lai.
+
 ---
 ## Hướng Dẫn Cài Đặt Dự Án
 - Đê hiểu rõ hơn về cách hoạt động và vận hành của các công cụ, cung nhưu luồng hoạt động mình sẽ đề xuất việc cài đặt các công cụ thủ công trên Ubuntu. Bạn cũng có thể dùng docker cho dự dán để tự động hóa và đóng gói nếu cần.
