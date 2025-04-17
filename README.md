@@ -166,6 +166,24 @@ cd <tên-thư-mục-project>
 
 Tải các thư viện cần thiết trong folder **requirements**
 
+```mermaid
+flowchart TD
+    Start([Bắt đầu]) --> InstallOption{Bạn muốn cài đặt dự án như thế nào?}
+    InstallOption -->|Cài đặt bằng Docker| Docker[Hướng dẫn cài Docker]
+    InstallOption -->|Cài đặt thủ công trên Ubuntu| Manual[Hướng dẫn cài đặt thủ công trên Ubuntu]
+
+    Docker --> PullImage[1. Kéo image Docker từ registry]
+    PullImage --> RunContainer[2. Chạy các container: Kafka, Spark, Airflow, Hadoop]
+    RunContainer --> Finish([Hoàn thành cài đặt])
+
+    Manual --> InstallHadoop[1. Cài đặt Hadoop]
+    InstallHadoop --> InstallKafka[2. Cài đặt Kafka]
+    InstallKafka --> InstallSpark[3. Cài đặt Spark]
+    InstallSpark --> InstallAirflow[4. Cài đặt Airflow]
+    InstallAirflow --> Finish([Hoàn thành cài đặt])
+```
+
+
 ### 1. Cài Đặt Hadoop Trên Ubuntu
 
 ```bash
