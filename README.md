@@ -150,11 +150,11 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 **Mô tả**: Hình ảnh này mô tả việc gửi email tự động khi các tác vụ trong **Airflow** hoàn tất, giúp người quản trị nhận thông báo kịp thời về trạng thái của quy trình xử lý dữ liệu.
 
 ---
-
 ## Hướng Dẫn Cài Đặt Dự Án
-### 1. 
-# Cài Đặt Hadoop Trên Ubuntu
 
+### 1. Cài Đặt Hadoop Trên Ubuntu
+
+```bash
 # 1. Cài Java 8
 sudo apt update
 sudo apt install openjdk-8-jdk -y
@@ -165,19 +165,25 @@ javac -version
 which javac
 readlink -f /usr/bin/javac
 # Ghi nhớ JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64/
+```
 
+```bash
 # 2. Tải Hadoop
 # Truy cập https://hadoop.apache.org/releases.html, tải bản mới nhất (vd: hadoop-3.4.1)
 tar -xvzf hadoop-3.4.1.tar.gz
 mv hadoop-3.4.1 ~/hadoop-3.4.1
+```
 
+```bash
 # 3. Cài SSH
 sudo apt install openssh-server openssh-client -y
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 ssh localhost
+```
 
+```bash
 # 4. Thiết lập biến môi trường
 gedit ~/.bashrc
 # Thêm vào cuối:
@@ -195,18 +201,24 @@ export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 # Lưu file rồi chạy:
 source ~/.bashrc
+```
 
+```bash
 # 5. Cấu hình Hadoop
 
 # 5.1 Cấu hình JAVA_HOME trong hadoop-env.sh
 gedit ~/hadoop-3.4.1/etc/hadoop/hadoop-env.sh
 # Sửa dòng:
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+```
 
+```bash
 # 5.2 core-site.xml
 mkdir -p ~/hadoop-3.4.1/tmp
 gedit ~/hadoop-3.4.1/etc/hadoop/core-site.xml
-# Thêm trong <configuration>:
+```
+Thêm trong `<configuration>`:
+```xml
 <property>
   <name>hadoop.tmp.dir</name>
   <value>/home/tienanh/hadoop-3.4.1/tmp</value>
@@ -215,21 +227,29 @@ gedit ~/hadoop-3.4.1/etc/hadoop/core-site.xml
   <name>fs.default.name</name>
   <value>hdfs://localhost:9000</value>
 </property>
+```
 
+```bash
 # 5.3 mapred-site.xml
 cp ~/hadoop-3.4.1/etc/hadoop/mapred-site.xml.template ~/hadoop-3.4.1/etc/hadoop/mapred-site.xml
 gedit ~/hadoop-3.4.1/etc/hadoop/mapred-site.xml
-# Thêm:
+```
+Thêm:
+```xml
 <property>
   <name>mapreduce.framework.name</name>
   <value>yarn</value>
 </property>
+```
 
+```bash
 # 5.4 hdfs-site.xml
 mkdir -p ~/hadoop-3.4.1/data/namenode
 mkdir -p ~/hadoop-3.4.1/data/datanode
 gedit ~/hadoop-3.4.1/etc/hadoop/hdfs-site.xml
-# Thêm:
+```
+Thêm:
+```xml
 <property>
   <name>dfs.replication</name>
   <value>1</value>
@@ -242,10 +262,14 @@ gedit ~/hadoop-3.4.1/etc/hadoop/hdfs-site.xml
   <name>dfs.datanode.data.dir</name>
   <value>/home/tienanh/hadoop-3.4.1/data/datanode</value>
 </property>
+```
 
+```bash
 # 5.5 yarn-site.xml
 gedit ~/hadoop-3.4.1/etc/hadoop/yarn-site.xml
-# Thêm:
+```
+Thêm:
+```xml
 <property>
   <name>yarn.nodemanager.aux-services</name>
   <value>mapreduce_shuffle</value>
@@ -270,16 +294,22 @@ gedit ~/hadoop-3.4.1/etc/hadoop/yarn-site.xml
   <name>yarn.resourcemanager.webapp.address</name>
   <value>0.0.0.0:8088</value>
 </property>
+```
 
+```bash
 # 6. Format hệ thống Hadoop
 cd ~
 hdfs namenode -format
+```
 
+```bash
 # 7. Khởi chạy Hadoop
 start-dfs.sh
 start-yarn.sh
+```
 
+```bash
 # 8. Kiểm tra tiến trình
 jps
 # Kết quả cần có: NameNode, DataNode, SecondaryNameNode, ResourceManager, NodeManager, Jps
-
+```
