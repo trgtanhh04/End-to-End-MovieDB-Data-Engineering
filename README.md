@@ -11,6 +11,7 @@
 ---
 
 ## Cấu trúc thư mục
+```bash
 END-TO-END MOVIE RECOMMENDATION/
 │
 ├── app/
@@ -46,6 +47,7 @@ END-TO-END MOVIE RECOMMENDATION/
 ├── .gitignore                    # File cấu hình Git để loại trừ các file/thư mục
 ├── dataLake_architecture.txt     # Mô tả kiến trúc tổng thể hệ thống Data Lake
 └── README.md                     # Mô tả và hướng dẫn sử dụng dự án
+```
 
 ---
 ## Kiến trúc pipeline
