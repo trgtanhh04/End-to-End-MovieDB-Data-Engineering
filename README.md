@@ -183,6 +183,26 @@ flowchart TD
     InstallAirflow --> Finish([Hoàn thành cài đặt])
 ```
 
+#### **Cài Đặt Bằng Docker**
+
+```bash
+# 1. Kéo image Docker từ registry
+docker pull <image-name>
+
+# 2. Chạy các container
+docker-compose up -d
+```
+
+---
+
+#### **Cài Đặt Thủ Công Trên Ubuntu**
+
+1. [Cài đặt Hadoop](#3-cài-đặt-hadoop-trên-ubuntu)
+2. [Cài đặt Kafka](#2-cài-đặt-kafka-trên-ubuntu)
+3. [Cài đặt Spark](#3-cài-đặt-apache-spark-trên-ubuntu)
+4. [Cài đặt Airflow](#4-cài-đặt-apache-airflow-trên-ubuntu)
+
+
 
 ### 1. Cài Đặt Hadoop Trên Ubuntu
 
