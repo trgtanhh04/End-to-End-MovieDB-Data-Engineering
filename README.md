@@ -42,7 +42,7 @@ END-TO-END MOVIE RECOMMENDATION/
 ├── install/                      # Chứa các file cài đặt và setup môi trường
 │
 ├── notebooks/                # Notebook dùng cho exploratory data analysis, modeling, etc. đóng vai trò của
-│                               một Data scientist
+│                             #  một Data scientist
 │     └── 1.0-data-collecting.ipynb             
 │     └── 2.0-preprocessing.ipynb
 │     └── 3.0-eda.ipynb
@@ -52,7 +52,7 @@ END-TO-END MOVIE RECOMMENDATION/
 │
 │
 ├── scripts/                      # Các script xử lý dữ liệu, là thưu mục chính của đồ án đề
-│                                     cài đặt các quy trình Pipeline
+│                                 #    cài đặt các quy trình Pipeline
 │     └── ETL.py
 │     └── convert_to_json.py
 │     └── craw_data.py  
