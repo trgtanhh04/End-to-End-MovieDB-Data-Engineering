@@ -21,8 +21,11 @@ END-TO-END MOVIE RECOMMENDATION/
 │   ├── json_data_20250416212459/  # Dữ liệu JSON batch với timestamp
 │   │   └── batch_1/
 │   │       └── movie_json_1.json
+|   |       └── movie_json_2.json
+|   |       ...
 |   |   └── bath_2 /
 |   |       └── movie_json_1.json
+|   |       ...
 │   └── load_to_hdfs.log           # Log của quá trình nạp dữ liệu vào HDFS
 │
 ├── dags/
@@ -39,11 +42,22 @@ END-TO-END MOVIE RECOMMENDATION/
 │
 ├── install/                      # Chứa các file cài đặt và setup môi trường
 │
-├── notebooks/                    # Notebook dùng cho exploratory data analysis, modeling, etc. đóng vai trò của một Data scientist
+├── notebooks/                # Notebook dùng cho exploratory data analysis, modeling, etc. đóng vai trò của một Data scientist
+|     └── 1.0-data-collecting.ipynb             
+|     └── 2.0-preprocessing.ipynb
+|     └── 3.0-eda.ipynb
+|     └── 4.0-data-modelling.ipynb
 │
 ├── requirements/                 # Chứa file yêu cầu cài thư viện
 │
 ├── scripts/                      # Các script xử lý dữ liệu, là thưu mục chính của đồ án đề cài đặt các quy trình Pipeline
+|     └── ETL.py
+|     └── convert_to_json.py
+|     └── craw_data.py  
+|     └── kafka_listeniner.py
+|     └── load_to_dataLake.py  
+|     └── sendEmail.py
+|     └── upload_db_to_cloud.py
 │
 ├── .gitignore                    # File cấu hình Git để loại trừ các file/thư mục
 ├── dataLake_architecture.txt     # Mô tả kiến trúc tổng thể hệ thống Data Lake
