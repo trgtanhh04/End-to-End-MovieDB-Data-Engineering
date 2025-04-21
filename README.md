@@ -22,10 +22,6 @@ END-TO-END MOVIE RECOMMENDATION/
 │   │   └── batch_1/
 │   │       └── movie_json_1.json
 │   │       └── movie_json_2.json
-│   │       ...
-│   │   └── bath_2 /
-│   │       └── movie_json_1.json
-│   │       ...
 │   └── load_to_hdfs.log           # Log của quá trình nạp dữ liệu vào HDFS
 │
 ├── dags/
@@ -40,11 +36,13 @@ END-TO-END MOVIE RECOMMENDATION/
 │   ├── batch_2
 │   ├── batch_3
 │   ...
+│ 
 ├── imge/                         # Hình ảnh trực quan của đồ án
 │
 ├── install/                      # Chứa các file cài đặt và setup môi trường
 │
-├── notebooks/                # Notebook dùng cho exploratory data analysis, modeling, etc. đóng vai trò của một Data scientist
+├── notebooks/                # Notebook dùng cho exploratory data analysis, modeling, etc. đóng vai trò của
+│                               một Data scientist
 │     └── 1.0-data-collecting.ipynb             
 │     └── 2.0-preprocessing.ipynb
 │     └── 3.0-eda.ipynb
@@ -52,7 +50,9 @@ END-TO-END MOVIE RECOMMENDATION/
 │
 ├── requirements/                 # Chứa file yêu cầu cài thư viện
 │
-├── scripts/                      # Các script xử lý dữ liệu, là thưu mục chính của đồ án đề cài đặt các quy trình Pipeline
+│
+├── scripts/                      # Các script xử lý dữ liệu, là thưu mục chính của đồ án đề
+│                                     cài đặt các quy trình Pipeline
 │     └── ETL.py
 │     └── convert_to_json.py
 │     └── craw_data.py  
