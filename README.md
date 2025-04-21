@@ -35,9 +35,11 @@ END-TO-END MOVIE RECOMMENDATION/
 │   ├── data_processed1.csv       # Dữ liệu đã xử lý
 │   └── movies.csv                # Dữ liệu gốc phim
 │
-├── data_json/
-│   ├── batch_1/ ... batch_10/    # Các batch dữ liệu dạng JSON (phân theo nhóm)
-│
+├── data_json/             # Các batch dữ liệu dạng JSON (phân theo nhóm)
+│   ├── batch_1            # Các batch dữ liệu dạng JSON (phân theo nhóm)
+│   ├── batch_2
+│   ├── batch_3
+│   ...
 ├── imge/                         # Hình ảnh trực quan của đồ án
 │
 ├── install/                      # Chứa các file cài đặt và setup môi trường
