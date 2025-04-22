@@ -163,7 +163,7 @@ Mô tả các tác vụ:
 
 ## Hình Ảnh và Mô Tả
 
-Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành phần quan trọng trong dự án của bạn:
+Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành phần quan trọng trong dự án:
 
 ### 1. **Giao diện web**
 <p align="center">
