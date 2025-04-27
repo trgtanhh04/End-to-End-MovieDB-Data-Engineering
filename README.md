@@ -41,8 +41,9 @@ END-TO-END MOVIE RECOMMENDATION/
 │
 ├── install/                      # Chứa các file cài đặt và setup môi trường
 │
-├── notebooks/                # Notebook dùng cho exploratory data analysis, modeling, etc. đóng vai trò của
-│                             #  một Data scientist
+├── notebooks/                # Notebook dùng cho exploratory data analysis, modeling, etc.
+│                             # đóng vai trò của một Data scientist
+│                            
 │     └── 1.0-data-collecting.ipynb             
 │     └── 2.0-preprocessing.ipynb
 │     └── 3.0-eda.ipynb
