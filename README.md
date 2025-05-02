@@ -179,7 +179,7 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 ### 2. **Airflow UI**  
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Airflow_UI.png" width="100%" alt="Mô hình MVC">
+  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/Airflow_UI.png" width="100%" alt="airflow">
 </p>
 
 **Mô tả**: Đây là giao diện người dùng của **Apache Airflow**, công cụ điều phối chính trong quy trình ETL của dự án. Giao diện này cho phép bạn theo dõi các pipeline, kiểm tra lịch trình chạy và theo dõi các tác vụ.
@@ -200,7 +200,7 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 ### 5. **Send Gmail**  
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Send_Gmail.png" width="100%" alt="gmail">
+ <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/Send_Gmail.png" width="100%" alt="gmail">
 </p>
 
 **Mô tả**: Hình ảnh này mô tả việc gửi email tự động khi các tác vụ trong **Airflow** hoàn tất, giúp người quản trị nhận thông báo kịp thời về trạng thái của quy trình xử lý dữ liệu.
