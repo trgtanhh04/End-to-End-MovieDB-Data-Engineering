@@ -70,7 +70,7 @@ END-TO-END MOVIE RECOMMENDATION/
 ---
 ## Kiến trúc pipeline
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Data%20engineering%20architecture.png" width="100%" alt="Mô hình MVC">
+  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/Data%20engineering%20architecture.png" width="100%" alt="airflow">
 </p>
 
 ---
@@ -78,7 +78,7 @@ END-TO-END MOVIE RECOMMENDATION/
 ## Task Dependencies
 Sơ đồ này minh họa rõ ràng hành trình của dữ liệu từ thu thập đến xử lý và phân phối kết quả trong hệ thống.
 <p align="center">
-  <img src=https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Pipeline_Airflow.png width="100%" alt="Mô hình MVC">
+  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/Pipeline_Airflow.png" width="100%" alt="airflow">
 </p>
 
 Mô tả các tác vụ:
@@ -168,8 +168,8 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 ### 1. **Giao diện web**
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/UI_Streamlit_1.png" width="48%" alt="Bảng điều khiển quản trị">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/UI_Streamlit_2.png" width="48%" alt="Giao diện khách hàng">
+  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/UI_Streamlit_1.png" width="48%" alt="airflow">
+  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/UI_Streamlit_2.png" width="48%" alt="airflow">
 </p>
 
 **Mô tả**: Đây là giao diện người dùng được xây dựng bằng **Streamlit** – một framework Python mạnh mẽ cho việc xây dựng các ứng dụng web phục vụ trực quan hóa dữ liệu.  
@@ -186,14 +186,14 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 ### 3. **Data in HDFS**  
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Data_In_HDFS.png" width="100%" alt="Mô hình MVC">
+  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/Data_In_HDFS.png" width="100%" alt="airflow">
 </p>
 
 **Mô tả**: Hình ảnh này minh họa cách dữ liệu được lưu trữ trong **HDFS** (Hadoop Distributed File System), nơi dữ liệu thô được lưu trữ và chuẩn bị cho các bước xử lý tiếp theo.
 
 ### 4. **ERD For Database**  
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/ERD_For_Database.png" width="100%" alt="Mô hình MVC">
+  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/ERD_For_Database.png" width="100%" alt="airflow">
 </p>
 
 **Mô tả**: **ERD (Entity-Relationship Diagram)** này mô tả cấu trúc cơ sở dữ liệu PostgreSQL, giúp hiểu rõ cách dữ liệu được lưu trữ và các mối quan hệ giữa các bảng trong hệ thống.
@@ -207,7 +207,7 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 ### 6. **Machine learning**  
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/ML.png" width="100%" alt="Mô hình MVC">
+  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/ML.png" width="100%" alt="gmail">
 </p>
 
 **Mô tả**: 
