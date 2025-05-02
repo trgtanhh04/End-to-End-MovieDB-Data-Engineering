@@ -168,8 +168,8 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 ### 1. **Giao diện web**
 <p align="center">
-  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/UI_Streamlit_1.png" width="48%" alt="airflow">
-  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/UI_Streamlit_2.png" width="48%" alt="airflow">
+  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/UI_Streamlit_1.png" width="47%" alt="airflow">
+  <img src="https://raw.githubusercontent.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/main/imge/UI_Streamlit_2.png" width="47%" alt="airflow">
 </p>
 
 **Mô tả**: Đây là giao diện người dùng được xây dựng bằng **Streamlit** – một framework Python mạnh mẽ cho việc xây dựng các ứng dụng web phục vụ trực quan hóa dữ liệu.  
