@@ -200,7 +200,7 @@ Dưới đây là các hình ảnh mô phỏng kiến trúc và các thành ph�
 
 ### 5. **Send Gmail**  
 <p align="center">
-  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Send_Gmail.png" width="100%" alt="Mô hình MVC">
+  <img src="https://github.com/trgtanhh04/End-to-End-MovieDB-Data-Engineering/blob/main/imge/Send_Gmail.png" width="100%" alt="gmail">
 </p>
 
 **Mô tả**: Hình ảnh này mô tả việc gửi email tự động khi các tác vụ trong **Airflow** hoàn tất, giúp người quản trị nhận thông báo kịp thời về trạng thái của quy trình xử lý dữ liệu.
