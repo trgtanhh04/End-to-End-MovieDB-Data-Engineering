@@ -2,3 +2,7 @@
 
 # VSCode
 .vscode/
+
+scripts/__pycache__/
+install/
+archive/
