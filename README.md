@@ -17,13 +17,6 @@ END-TO-END MOVIE RECOMMENDATION/
 ├── app/
 │   └── app.py                     # Tập tin chính chạy ứng dụng web/API
 │
-├── archive/                       # Lưu trữ các dữ liệu hoặc log cũ
-│   ├── json_data_20250416212459/  # Dữ liệu JSON batch với timestamp
-│   │   └── batch_1/
-│   │       └── movie_json_1.json
-│   │       └── movie_json_2.json
-│   └── load_to_hdfs.log           # Log của quá trình nạp dữ liệu vào HDFS
-│
 ├── dags/
 │   └── data_pipeline.py          # DAG cho Airflow để quản lý pipeline dữ liệu
 │
@@ -37,10 +30,7 @@ END-TO-END MOVIE RECOMMENDATION/
 │   ├── batch_3
 │   ...
 │ 
-├── imge/                         # Hình ảnh trực quan của đồ án
-│
-├── install/                      # Chứa các file cài đặt và setup môi trường
-│
+├── imge/                      # Hình ảnh trực quan của đồ án
 ├── notebooks/                # Notebook dùng cho exploratory data analysis, modeling, etc.
 │                             # đóng vai trò của một Data scientist
 │                            
@@ -53,7 +43,7 @@ END-TO-END MOVIE RECOMMENDATION/
 │
 │
 ├── scripts/                      # Các script xử lý dữ liệu, là thưu mục chính của đồ án đề
-│                                 #    cài đặt các quy trình Pipeline
+│                                 # cài đặt các quy trình Pipeline
 │     └── ETL.py
 │     └── convert_to_json.py
 │     └── craw_data.py  
@@ -62,7 +52,7 @@ END-TO-END MOVIE RECOMMENDATION/
 │     └── sendEmail.py
 │     └── upload_db_to_cloud.py
 │
-├── .gitignore                    # File cấu hình Git để loại trừ các file/thư mục
+├── .gitignore              
 ├── dataLake_architecture.txt     # Mô tả kiến trúc tổng thể hệ thống Data Lake
 └── README.md                     # Mô tả và hướng dẫn sử dụng dự án
 ```
