@@ -11,52 +11,50 @@
 ---
 
 ## Cấu trúc thư mục
-```bash
+```
 END-TO-END MOVIE RECOMMENDATION/
 │
 ├── app/
 │   └── app.py                     # Tập tin chính chạy ứng dụng web/API
 │
 ├── dags/
-│   └── data_pipeline.py          # DAG cho Airflow để quản lý pipeline dữ liệu
+│   └── data_pipeline.py           # DAG cho Airflow để quản lý pipeline dữ liệu
 │
 ├── data/
-│   ├── data_processed1.csv       # Dữ liệu đã xử lý
-│   └── movies.csv                # Dữ liệu gốc phim
+│   ├── data_processed1.csv        # Dữ liệu đã xử lý
+│   └── movies.csv                 # Dữ liệu gốc phim
 │
-├── data_json/             # Các batch dữ liệu dạng JSON (phân theo nhóm)
-│   ├── batch_1            # Các batch dữ liệu dạng JSON (phân theo nhóm)
-│   ├── batch_2
-│   ├── batch_3
+├── data_json/                     # Các batch dữ liệu dạng JSON (phân theo nhóm)
+│   ├── batch_1/
+│   ├── batch_2/
+│   ├── batch_3/
 │   ...
-│ 
-├── imge/                      # Hình ảnh trực quan của đồ án
-├── notebooks/                # Notebook dùng cho exploratory data analysis, modeling, etc.
-│                             # đóng vai trò của một Data scientist
-│                            
-│     └── 1.0-data-collecting.ipynb             
-│     └── 2.0-preprocessing.ipynb
-│     └── 3.0-eda.ipynb
-│     └── 4.0-data-modelling.ipynb
 │
-├── requirements/                 # Chứa file yêu cầu cài thư viện
+├── imge/                          # Hình ảnh trực quan của đồ án
 │
+├── notebooks/                     # Notebook dùng cho exploratory data analysis, modeling, etc.
+│                                   # Đóng vai trò của một Data Scientist
+│   ├── 1.0-data-collecting.ipynb
+│   ├── 2.0-preprocessing.ipynb
+│   ├── 3.0-eda.ipynb
+│   └── 4.0-data-modelling.ipynb
 │
-├── scripts/                      # Các script xử lý dữ liệu, là thưu mục chính của đồ án đề
-│                                 # cài đặt các quy trình Pipeline
-│     └── ETL.py
-│     └── convert_to_json.py
-│     └── craw_data.py  
-│     └── kafka_listeniner.py
-│     └── load_to_dataLake.py  
-│     └── sendEmail.py
-│     └── upload_db_to_cloud.py
+├── requirements/                  # Chứa file yêu cầu cài thư viện
 │
-├── .gitignore              
-├── dataLake_architecture.txt     # Mô tả kiến trúc tổng thể hệ thống Data Lake
-└── README.md                     # Mô tả và hướng dẫn sử dụng dự án
+├── scripts/                       # Các script xử lý dữ liệu, là thư mục chính của đồ án
+│                                   # Cài đặt các quy trình Pipeline
+│   ├── ETL.py
+│   ├── convert_to_json.py
+│   ├── craw_data.py
+│   ├── kafka_listener.py
+│   ├── load_to_dataLake.py
+│   ├── sendEmail.py
+│   └── upload_db_to_cloud.py
+│
+├── .gitignore
+├── dataLake_architecture.txt      # Mô tả kiến trúc tổng thể hệ thống Data Lake
+└── README.md                      # Mô tả và hướng dẫn sử dụng dự án
 ```
-
 ---
 ## Kiến trúc pipeline
 <p align="center">
