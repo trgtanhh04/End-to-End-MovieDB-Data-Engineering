@@ -34,10 +34,8 @@ END-TO-END MOVIE RECOMMENDATION/
 │
 ├── notebooks/                     # Notebook dùng cho exploratory data analysis, modeling, etc.
 │                                   # Đóng vai trò của một Data Scientist
-│   ├── 1.0-data-collecting.ipynb
-│   ├── 2.0-preprocessing.ipynb
-│   ├── 3.0-eda.ipynb
-│   └── 4.0-data-modelling.ipynb
+│   ├── 1.0-eda.ipynb
+│   └── 2.0-data-modelling.ipynb
 │
 ├── requirements/                  # Chứa file yêu cầu cài thư viện
 │
